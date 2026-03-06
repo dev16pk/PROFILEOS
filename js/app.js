@@ -4,6 +4,8 @@
    ============================================ */
 
 const App = (() => {
+  // Auto-detect base path for GitHub Pages project pages
+  const BASE_PATH = location.hostname.includes('github.io') ? '/PROFILEOS' : '';
   let activeProfile = null;
   let winZ = 100;
   let startMenuOpen = false;
@@ -130,7 +132,9 @@ const App = (() => {
     if (params.get('p')) {
       route = params.get('p');
     } else {
-      route = location.pathname.replace(/^\//, '').replace(/\/$/, '').toLowerCase();
+      let raw = location.pathname;
+      if (BASE_PATH && raw.startsWith(BASE_PATH)) raw = raw.slice(BASE_PATH.length);
+      route = raw.replace(/^\//, '').replace(/\/$/, '').toLowerCase();
     }
     // Also support legacy hash routes
     if (!route && location.hash) route = location.hash.replace('#', '');
@@ -146,7 +150,7 @@ const App = (() => {
      ══════════════════════════════ */
   function launchDesktop(profileKey) {
     activeProfile = profileKey;
-    history.pushState(null, '', '/' + profileKey);
+    history.pushState(null, '', BASE_PATH + '/' + profileKey);
     const p = PROFILES[profileKey];
 
     document.getElementById('profile-selector').classList.add('hidden');
@@ -227,7 +231,7 @@ const App = (() => {
       document.getElementById('windows-container').innerHTML = '';
       document.getElementById('taskbar-apps').innerHTML = '';
       activeProfile = null;
-      history.pushState(null, '', '/');
+      history.pushState(null, '', BASE_PATH + '/');
       showProfileSelector();
     };
     renderStartMenu();
@@ -593,7 +597,7 @@ const App = (() => {
     document.getElementById('profile-selector').classList.add('hidden');
     document.getElementById('desktop').classList.add('hidden');
     document.getElementById('admin-desktop').classList.remove('hidden');
-    history.pushState(null, '', '/admin');
+    history.pushState(null, '', BASE_PATH + '/admin');
     Admin.open();
     document.getElementById('admin-back').onclick = () => {
       document.getElementById('admin-desktop').classList.add('hidden');
