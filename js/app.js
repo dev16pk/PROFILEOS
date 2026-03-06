@@ -66,11 +66,6 @@ const App = (() => {
     renderProfileCards();
     bindAdminLogin();
     handleRoute();
-    // If only one live profile, auto-launch it
-    const liveProfiles = PROFILE_ORDER.filter(k => !PROFILES[k].comingSoon);
-    if (liveProfiles.length === 1 && !location.pathname.includes('admin') && !new URLSearchParams(location.search).get('p')?.includes('admin')) {
-      launchDesktop(liveProfiles[0]);
-    }
   }
 
   function generateParticles() {
