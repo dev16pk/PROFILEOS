@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>
+// Redirect 404 paths to index.html with query param (GitHub Pages SPA trick)
+var path = window.location.pathname;
+if (path !== '/' && path !== '/index.html') {
+  var seg = path.replace(/^\//, '').replace(/\/$/, '');
+  window.location.replace('/?p=' + encodeURIComponent(seg));
+}
+</script>
+</head>
+</html>

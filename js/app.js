@@ -65,7 +65,7 @@ const App = (() => {
     generateParticles();
     renderProfileCards();
     bindAdminLogin();
-    handleHashRoute();
+    handleRoute();
   }
 
   function generateParticles() {
@@ -124,12 +124,21 @@ const App = (() => {
     passIn.addEventListener('keydown', e => { if (e.key === 'Enter') submit.click(); });
   }
 
-  function handleHashRoute() {
-    const hash = location.hash.replace('#', '');
-    if (hash === 'admin') {
+  function handleRoute() {
+    // Support both /path and ?p=path (404.html SPA redirect)
+    let route = '';
+    const params = new URLSearchParams(location.search);
+    if (params.get('p')) {
+      route = params.get('p');
+    } else {
+      route = location.pathname.replace(/^\//, '').replace(/\/$/, '').toLowerCase();
+    }
+    // Also support legacy hash routes
+    if (!route && location.hash) route = location.hash.replace('#', '');
+    if (route === 'admin') {
       document.getElementById('admin-login-btn').click();
-    } else if (PROFILES[hash] && !PROFILES[hash].comingSoon) {
-      launchDesktop(hash);
+    } else if (PROFILES[route] && !PROFILES[route].comingSoon) {
+      launchDesktop(route);
     }
   }
 
@@ -138,7 +147,7 @@ const App = (() => {
      ══════════════════════════════ */
   function launchDesktop(profileKey) {
     activeProfile = profileKey;
-    location.hash = profileKey;
+    history.pushState(null, '', '/' + profileKey);
     const p = PROFILES[profileKey];
 
     document.getElementById('profile-selector').classList.add('hidden');
@@ -179,7 +188,7 @@ const App = (() => {
       document.getElementById('windows-container').innerHTML = '';
       document.getElementById('taskbar-apps').innerHTML = '';
       activeProfile = null;
-      location.hash = '';
+      history.pushState(null, '', '/');
       showProfileSelector();
     };
     renderStartMenu();
@@ -473,7 +482,7 @@ const App = (() => {
     document.getElementById('profile-selector').classList.add('hidden');
     document.getElementById('desktop').classList.add('hidden');
     document.getElementById('admin-desktop').classList.remove('hidden');
-    location.hash = 'admin';
+    history.pushState(null, '', '/admin');
     Admin.open();
     document.getElementById('admin-back').onclick = () => {
       document.getElementById('admin-desktop').classList.add('hidden');
