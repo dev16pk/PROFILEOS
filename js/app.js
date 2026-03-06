@@ -66,6 +66,11 @@ const App = (() => {
     renderProfileCards();
     bindAdminLogin();
     handleRoute();
+    // If only one live profile, auto-launch it
+    const liveProfiles = PROFILE_ORDER.filter(k => !PROFILES[k].comingSoon);
+    if (liveProfiles.length === 1 && !location.pathname.includes('admin') && !new URLSearchParams(location.search).get('p')?.includes('admin')) {
+      launchDesktop(liveProfiles[0]);
+    }
   }
 
   function generateParticles() {
@@ -83,7 +88,9 @@ const App = (() => {
 
   function renderProfileCards() {
     const container = document.getElementById('profile-cards');
-    container.innerHTML = PROFILE_ORDER.map(key => {
+    // Only show live (non-comingSoon) profiles publicly
+    const liveProfiles = PROFILE_ORDER.filter(key => !PROFILES[key].comingSoon);
+    container.innerHTML = liveProfiles.map(key => {
       const p = PROFILES[key];
       return `
         <div class="profile-card" data-profile="${key}">
@@ -94,15 +101,10 @@ const App = (() => {
         </div>`;
     }).join('');
     container.querySelectorAll('.profile-card').forEach(card => {
-      card.addEventListener('click', () => {
-        const key = card.dataset.profile;
-        if (PROFILES[key].comingSoon) {
-          showToast('Coming Soon', PROFILES[key].teaser || 'This profile is under construction.');
-          return;
-        }
-        launchDesktop(key);
-      });
+      card.addEventListener('click', () => launchDesktop(card.dataset.profile));
     });
+    // Hide admin button from public view
+    document.getElementById('admin-login-btn').classList.add('hidden');
   }
 
   function bindAdminLogin() {
