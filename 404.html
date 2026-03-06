@@ -4,10 +4,13 @@
 <meta charset="UTF-8">
 <script>
 // Redirect 404 paths to index.html with query param (GitHub Pages SPA trick)
+// Detect base path from repo name for project pages (e.g. /PROFILEOS/)
 var path = window.location.pathname;
-if (path !== '/' && path !== '/index.html') {
-  var seg = path.replace(/^\//, '').replace(/\/$/, '');
-  window.location.replace('/?p=' + encodeURIComponent(seg));
+var base = '/PROFILEOS';
+var rel = path.startsWith(base) ? path.slice(base.length) : path;
+rel = rel.replace(/^\//, '').replace(/\/$/, '');
+if (rel && rel !== 'index.html') {
+  window.location.replace(base + '/?p=' + encodeURIComponent(rel));
 }
 </script>
 </head>
