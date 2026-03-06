@@ -208,12 +208,20 @@ const App = (() => {
 
   function renderDesktopIcons(p) {
     const container = document.getElementById('desktop-icons');
-    container.innerHTML = (p.desktopIcons || []).map(i => `
+    container.innerHTML = (p.desktopIcons || []).map(i => {
+      const isClass = i.color && !i.color.startsWith('#') && !i.color.startsWith('rgb');
+      const style = isClass ? '' : `style="background:${i.color}"`;
+      const cls = isClass ? ` ${i.color}` : '';
+      const inner = i.img
+        ? `<img src="${i.img}" alt="${esc(i.label)}" class="desk-icon-png">`
+        : `<i class="fas ${i.icon}"></i>`;
+      return `
       <div class="desktop-icon" data-win="${i.id}">
-        <div class="icon-img" style="background:${i.color}"><i class="fas ${i.icon}"></i></div>
+        <div class="icon-img${cls}" ${style}>${inner}</div>
         <span>${esc(i.label)}</span>
         <div class="desk-tooltip">${esc(i.label)}</div>
-      </div>`).join('');
+      </div>`;
+    }).join('');
     container.querySelectorAll('.desktop-icon').forEach(icon => {
       icon.addEventListener('click', () => openWindow(icon.dataset.win));
     });

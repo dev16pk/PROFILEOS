@@ -233,7 +233,7 @@ const PROFILES = {
             { phase: 'AR/VR Experiences', detail: 'Created AR/VR interactive experiences for Gurgaon AM&C showcases' }
           ]
         },
-        { title: 'Explainosphere', date: '2024', status: 'done', icon: 'fa-lightbulb', desc: 'Universal learning platform built with FastAPI, Next.js, GPT-4, PostgreSQL, Redis.', tags: ['FastAPI','Next.js','GPT-4','PostgreSQL'], bar: 100, barColor: 'green',
+        { title: 'Explainosphere', date: '2024', status: 'done', icon: 'fa-lightbulb', logo: 'assets/logos/explainosphere.png', desc: 'Universal learning platform built with FastAPI, Next.js, GPT-4, PostgreSQL, Redis.', tags: ['FastAPI','Next.js','GPT-4','PostgreSQL'], bar: 100, barColor: 'green',
           role: 'Fullstack Developer',
           timeline: [
             { phase: 'Platform Architecture', detail: 'Designed curiosity-driven learning platform with FastAPI backend and Next.js frontend' },
@@ -260,7 +260,7 @@ const PROFILES = {
             { phase: 'Deployment', detail: 'Deployed for emergency response demonstration and testing' }
           ]
         },
-        { title: 'Navgyan Niyojan', date: '2020 – 2026', status: 'ongoing', icon: 'fa-graduation-cap', desc: 'Education curriculum improvement initiative through NGO collaboration.', tags: ['Education','NGO'], bar: 60, barColor: 'gold',
+        { title: 'Navgyan Niyojan', date: '2020 – 2026', status: 'ongoing', icon: 'fa-graduation-cap', logo: 'assets/logos/navgyan.png', desc: 'Education curriculum improvement initiative through NGO collaboration.', tags: ['Education','NGO'], bar: 60, barColor: 'gold',
           role: 'Volunteer Developer',
           timeline: [
             { phase: 'Curriculum Analysis', detail: 'Collaborated with NGO to assess gaps in existing education curriculum' },
@@ -344,7 +344,7 @@ const PROFILES = {
       { id: 'achievements', label: 'Achievements', icon: 'fa-trophy', color: '#f59e0b' },
       { id: 'inventory', label: 'Inventory', icon: 'fa-boxes-stacked', color: '#8b5cf6' },
       { id: 'chat', label: 'Ask Me', icon: 'fa-comments', color: '#ec4899' },
-      { id: 'skytiles', label: 'Sky Tiles', icon: 'fa-jedi', color: '#ffe81f' }
+      { id: 'skytiles', label: 'Sky Tiles', icon: 'fa-jedi', img: 'assets/skytiles.png', color: 'skytiles-icon' }
     ],
 
     cardDeloitte: true
