@@ -31,7 +31,7 @@ const App = (() => {
       'Scanning inventory database...',
       'Calibrating stat algorithms...',
       'Building desktop environment...',
-      'DevyaniOS v3.0 ready.'
+      'Devyani_pOS v20.26 ready.'
     ];
     let i = 0;
     const iv = setInterval(() => {
@@ -83,22 +83,42 @@ const App = (() => {
 
   function renderProfileCards() {
     const container = document.getElementById('profile-cards');
-    // Only show live (non-comingSoon) profiles publicly
     const liveProfiles = PROFILE_ORDER.filter(key => !PROFILES[key].comingSoon);
     container.innerHTML = liveProfiles.map(key => {
       const p = PROFILES[key];
+      const skillIcons = (p.cardSkills || []).map(s => {
+        const ic = s.icon.startsWith('devicon-') ? `<i class="${s.icon}"></i>` : `<i class="fas ${s.icon}"></i>`;
+        return `<div class="card-showcase-item" title="${esc(s.name)}">${ic}<span>${esc(s.name)}</span></div>`;
+      }).join('');
+      const companyIcons = (p.cardCompanies || []).map(c => {
+        return `<div class="card-company-item" title="${esc(c.name)}"><img class="co-logo" src="${esc(c.logo)}" alt="${esc(c.name)}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="co-fallback" style="display:none;background:${c.color}">${esc(c.name.charAt(0))}</span><span class="co-name">${esc(c.name)}</span></div>`;
+      }).join('');
+      const hasShowcase = skillIcons || companyIcons;
       return `
-        <div class="profile-card" data-profile="${key}">
+        <div class="profile-card${hasShowcase ? ' card-expanded' : ''}" data-profile="${key}">
           <span class="card-badge ${p.badgeClass}">${esc(p.badge)}</span>
-          <div class="card-icon"><i class="fas ${p.icon}"></i></div>
-          <h3>${esc(p.name)}</h3>
-          <p>${esc(p.tagline)}</p>
+          <div class="card-top">
+            <div class="card-icon"><i class="fas ${p.icon}"></i></div>
+            <h3>${esc(p.name)}</h3>
+            <p>${esc(p.tagline)}</p>
+          </div>
+          ${hasShowcase ? `
+          <div class="card-showcase">
+            <div class="card-showcase-col">
+              <div class="showcase-label"><i class="fas fa-code"></i> Tech Stack</div>
+              <div class="showcase-grid">${skillIcons}</div>
+            </div>
+            <div class="card-showcase-divider"></div>
+            <div class="card-showcase-col">
+              <div class="showcase-label"><i class="fas fa-building"></i> Clients</div>
+              <div class="showcase-grid co-grid">${companyIcons}</div>
+            </div>
+          </div>` : ''}
         </div>`;
     }).join('');
     container.querySelectorAll('.profile-card').forEach(card => {
       card.addEventListener('click', () => launchDesktop(card.dataset.profile));
     });
-    // Hide admin button from public view
     document.getElementById('admin-login-btn').classList.add('hidden');
   }
 
@@ -154,10 +174,42 @@ const App = (() => {
 
     document.getElementById('profile-badge').textContent = p.name;
     document.getElementById('start-menu-role').textContent = p.tagline;
+    renderAboutPanel(p);
     renderDesktopIcons(p);
     bindTaskbar();
     startClock();
     setTimeout(() => showToast('Profile Loaded', `Welcome to ${p.name}!`), 800);
+  }
+
+  function renderAboutPanel(p) {
+    const panel = document.getElementById('about-panel');
+    const a = p.about;
+    if (!a || !panel) return;
+    const attrs = (a.attributes || []).map(at => `
+      <div class="attr-box"><span class="attr-key">${esc(at.key)}</span><span class="attr-val">${esc(at.val)}</span><span class="attr-desc">${esc(at.desc)}</span></div>
+    `).join('');
+    const statCards = (p.stats || []).map(s => `
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas ${s.icon}"></i></div>
+        <div class="stat-name">${esc(s.name)}</div>
+        <div class="stat-bar"><div class="stat-fill ${s.color}" data-val="${s.value}"></div></div>
+        <div class="stat-value">${s.value}%</div>
+      </div>`).join('');
+    panel.innerHTML = `
+      <div class="about-hero">
+        <div class="deloitte-badge"><img src="https://logo.clearbit.com/deloitte.com" alt="Deloitte" onerror="this.parentElement.style.display='none'"><span>Deloitte</span></div>
+        <img src="assets/profile.jpg" alt="${esc(a.name)}" class="about-photo">
+        <div class="about-info">
+          <h2 class="about-name">${esc(a.name)}</h2>
+          <p class="about-title">${esc(a.title)}</p>
+          <p class="about-summary">${esc(a.summary)}</p>
+        </div>
+      </div>
+      <div class="attr-grid">${attrs}</div>
+      <div class="stats-grid" style="margin-top:1rem">${statCards}</div>`;
+    setTimeout(() => {
+      panel.querySelectorAll('.stat-fill[data-val]').forEach(bar => { bar.style.width = bar.dataset.val + '%'; });
+    }, 400);
   }
 
   function renderDesktopIcons(p) {
@@ -168,8 +220,7 @@ const App = (() => {
         <span>${esc(i.label)}</span>
       </div>`).join('');
     container.querySelectorAll('.desktop-icon').forEach(icon => {
-      icon.addEventListener('dblclick', () => openWindow(icon.dataset.win));
-      icon.addEventListener('touchend', e => { e.preventDefault(); openWindow(icon.dataset.win); });
+      icon.addEventListener('click', () => openWindow(icon.dataset.win));
     });
   }
 
@@ -244,6 +295,7 @@ const App = (() => {
     win.style.zIndex = ++winZ;
 
     const isTerminal = id === 'terminal';
+    const isChat = id === 'chat';
     win.innerHTML = `
       <div class="window-header ${isTerminal ? 'terminal-header' : ''}">
         <div class="window-title"><i class="fas ${cfg.icon}"></i> ${esc(cfg.title)}</div>
@@ -253,7 +305,7 @@ const App = (() => {
           <button class="win-btn close" title="Close"><i class="fas fa-xmark"></i></button>
         </div>
       </div>
-      <div class="window-body ${isTerminal ? 'terminal-body' : ''}">${cfg.body}</div>`;
+      <div class="window-body ${isTerminal ? 'terminal-body' : ''} ${isChat ? 'chat-body' : ''}">${cfg.body}</div>`;
 
     document.getElementById('windows-container').appendChild(win);
     bringToFront(win);
@@ -261,6 +313,7 @@ const App = (() => {
     bindWindowControls(win, id);
     makeDraggable(win);
     if (isTerminal) Terminal.init(win.querySelector('.window-body'));
+    if (isChat) Chat.init(win.querySelector('.window-body'));
     animateStatBars(win);
   }
 
@@ -272,6 +325,7 @@ const App = (() => {
       quests: { title: 'Quest Log', icon: 'fa-scroll', w: 640, h: 520, body: renderQuests(p) },
       achievements: { title: 'Achievements', icon: 'fa-trophy', w: 560, h: 500, body: renderAchievements(p) },
       inventory: { title: 'Inventory', icon: 'fa-boxes-stacked', w: 520, h: 420, body: renderInventory(p) },
+      chat: { title: 'Ask Me Anything', icon: 'fa-comments', w: 440, h: 480, body: renderChat() },
       terminal: { title: 'Terminal', icon: 'fa-terminal', w: 560, h: 380, body: renderTerminal() }
     };
     return cfgs[id] || null;
@@ -286,7 +340,7 @@ const App = (() => {
     `).join('');
     const statCards = (p.stats || []).map(s => `
       <div class="stat-card">
-        <div class="stat-icon"><i class="fas ${s.icon}"></i></div>
+        <div class="stat-icon">${iconHtml(s.icon)}</div>
         <div class="stat-name">${esc(s.name)}</div>
         <div class="stat-bar"><div class="stat-fill ${s.color}" data-val="${s.value}"></div></div>
         <div class="stat-value">${s.value}%</div>
@@ -302,57 +356,82 @@ const App = (() => {
 
   function renderSkills(p) {
     if (!p.skills) return '<p>No skills.</p>';
-    return `<div class="section-title"><i class="fas fa-sitemap"></i> Skill Tree</div>
+    const totalNodes = p.skills.reduce((s,b) => s + b.nodes.length, 0);
+    const maxedNodes = p.skills.reduce((s,b) => s + b.nodes.filter(n => n.pips >= 5).length, 0);
+    return `<div class="section-title pixel-title"><i class="fas fa-sitemap"></i> Skill Tree <span class="skill-counter">${maxedNodes}/${totalNodes} MASTERED</span></div>
       <div class="skill-branches">
-      ${p.skills.map(b => `
+      ${p.skills.map(b => {
+        const branchXP = b.nodes.reduce((s,n) => s + n.pips, 0);
+        const branchMax = b.nodes.length * 5;
+        return `
         <div class="skill-branch">
-          <div class="branch-hdr ${b.hdrClass}"><i class="fas ${b.icon}"></i><h4>${esc(b.branch)}</h4></div>
+          <div class="branch-hdr ${b.hdrClass}">${iconHtml(b.icon)}<h4>${esc(b.branch)}</h4><span class="branch-xp">${branchXP}/${branchMax} XP</span></div>
+          <div class="branch-bar"><div class="branch-bar-fill ${b.hdrClass}" style="width:${(branchXP/branchMax*100).toFixed(0)}%"></div></div>
           <div class="skill-nodes">
-            ${b.nodes.map((n, i) => `
+            ${b.nodes.map((n, i) => {
+              const isMax = n.pips >= 5;
+              return `
               ${i > 0 ? '<div class="skill-conn"></div>' : ''}
-              <div class="skill-node">
-                <div class="node-icon"><i class="fas ${b.icon}"></i></div>
-                <div><span class="node-name">${esc(n.name)}</span>
-                  <div class="node-pips">${Array.from({length:5}, (_, j) => `<div class="pip${j < n.pips ? ' on' : ''}"></div>`).join('')}</div>
+              <div class="skill-node${isMax ? ' maxed' : ''}">
+                <div class="node-icon">${iconHtml(n.icon || b.icon)}</div>
+                <div class="node-info"><span class="node-name">${esc(n.name)}</span>
+                  <div class="node-meta"><div class="node-pips">${Array.from({length:5}, (_, j) => `<div class="pip${j < n.pips ? ' on' : ''}"></div>`).join('')}</div><span class="node-lvl">${isMax ? 'MAX' : n.pips + '/5'}</span></div>
                 </div>
-              </div>`).join('')}
+              </div>`;
+            }).join('')}
           </div>
-        </div>`).join('')}
+        </div>`;
+      }).join('')}
       </div>`;
   }
 
   function renderQuests(p) {
     if (!p.quests) return '<p>No quests.</p>';
     const tabs = p.questTabs || Object.keys(p.quests);
-    return `<div class="section-title"><i class="fas fa-scroll"></i> Quest Log</div>
-      <div class="quest-tabs">${tabs.map((t, i) => `<button class="quest-tab${i === 0 ? ' active' : ''}" data-tab="${esc(t)}">${esc(t)}</button>`).join('')}</div>
+    const totalQuests = Object.values(p.quests).flat().length;
+    const doneQuests = Object.values(p.quests).flat().filter(q => q.status === 'done').length;
+    return `<div class="section-title pixel-title"><i class="fas fa-scroll"></i> Quest Log <span class="quest-counter">${doneQuests}/${totalQuests} COMPLETE</span></div>
+      <div class="quest-tabs">${tabs.map((t, i) => {
+        const count = (p.quests[t] || []).length;
+        return `<button class="quest-tab${i === 0 ? ' active' : ''}" data-tab="${esc(t)}">${esc(t)} <span class="tab-count">${count}</span></button>`;
+      }).join('')}</div>
       ${tabs.map((t, i) => `
         <div class="quest-list${i > 0 ? ' hidden' : ''}" data-tab-body="${esc(t)}">
-          ${(p.quests[t] || []).map(q => `
+          ${(p.quests[t] || []).map(q => {
+            const statusLabel = q.status === 'done' ? 'COMPLETE' : q.status === 'active' ? 'IN PROGRESS' : 'LOCKED';
+            const statusClass = q.status === 'done' ? 'status-done' : q.status === 'active' ? 'status-active' : 'status-locked';
+            return `
             <div class="quest-card ${q.status}">
-              <div class="quest-icon"><i class="fas ${q.icon}"></i></div>
+              <div class="quest-icon-wrap"><div class="quest-icon-circle ${q.barColor || 'green'}">${iconHtml(q.icon)}</div></div>
               <div class="quest-body">
-                <h4>${esc(q.title)}</h4>
+                <div class="quest-header"><h4>${esc(q.title)}</h4><span class="quest-status ${statusClass}">${statusLabel}</span></div>
                 <p>${esc(q.desc)}</p>
                 <div class="quest-tags">${(q.tags || []).map(tg => `<span class="tag">${esc(tg)}</span>`).join('')}</div>
                 <div class="quest-bar"><div class="quest-bar-fill ${q.barColor}" style="width:${q.bar}%"></div></div>
               </div>
-            </div>`).join('')}
+            </div>`;
+          }).join('')}
         </div>`).join('')}`;
   }
 
   function renderAchievements(p) {
     if (!p.achievements) return '<p>No achievements.</p>';
     const unlocked = p.achievements.filter(a => a.unlocked).length;
-    return `<div class="section-title"><i class="fas fa-trophy"></i> Achievements</div>
+    const byRarity = { legendary: 0, epic: 0, rare: 0 };
+    p.achievements.forEach(a => { if (a.unlocked && byRarity[a.rarity] !== undefined) byRarity[a.rarity]++; });
+    return `<div class="section-title pixel-title"><i class="fas fa-trophy"></i> Achievements</div>
       <div class="ach-summary">
-        <div class="ach-stat"><span class="ach-big">${unlocked}</span><span class="ach-lbl">Unlocked</span></div>
-        <div class="ach-stat"><span class="ach-big">${p.achievements.length}</span><span class="ach-lbl">Total</span></div>
+        <div class="ach-ring"><svg viewBox="0 0 36 36" class="ach-ring-svg"><path class="ach-ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" /><path class="ach-ring-fill" stroke-dasharray="${(unlocked/p.achievements.length*100).toFixed(0)}, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" /></svg><div class="ach-ring-text"><span class="ach-big">${unlocked}</span><span class="ach-lbl">/${p.achievements.length}</span></div></div>
+        <div class="ach-rarity-breakdown">
+          <div class="ach-rb legendary"><i class="fas fa-gem"></i> ${byRarity.legendary} Legendary</div>
+          <div class="ach-rb epic"><i class="fas fa-star"></i> ${byRarity.epic} Epic</div>
+          <div class="ach-rb rare"><i class="fas fa-circle"></i> ${byRarity.rare} Rare</div>
+        </div>
       </div>
       <div class="ach-grid">
         ${p.achievements.map(a => `
-          <div class="ach-item${a.unlocked ? '' : ' locked'}">
-            <div class="ach-icon"><i class="fas ${a.icon}"></i></div>
+          <div class="ach-item ${a.rarity}${a.unlocked ? '' : ' locked'}">
+            <div class="ach-icon ${a.rarity}">${iconHtml(a.icon)}</div>
             <div class="ach-info"><h4>${esc(a.title)}</h4><p>${esc(a.desc)}</p></div>
             <span class="ach-rarity ${a.rarity}">${a.rarity}</span>
           </div>`).join('')}
@@ -361,13 +440,16 @@ const App = (() => {
 
   function renderInventory(p) {
     if (!p.inventory) return '<p>Empty inventory.</p>';
-    return `<div class="section-title"><i class="fas fa-boxes-stacked"></i> Tech Inventory</div>
+    const counts = { legendary: 0, epic: 0, rare: 0 };
+    p.inventory.forEach(i => { if (counts[i.rarity] !== undefined) counts[i.rarity]++; });
+    return `<div class="section-title pixel-title"><i class="fas fa-boxes-stacked"></i> Tech Inventory <span class="inv-counter">${p.inventory.length} items</span></div>
+      <div class="inv-legend"><span class="inv-leg legendary"><i class="fas fa-gem"></i> ${counts.legendary} Legendary</span><span class="inv-leg epic"><i class="fas fa-star"></i> ${counts.epic} Epic</span><span class="inv-leg rare"><i class="fas fa-circle"></i> ${counts.rare} Rare</span></div>
       <div class="inv-grid">
         ${p.inventory.map(item => `
-          <div class="inv-item">
-            <span class="inv-rarity ${item.rarity}">${item.rarity}</span>
-            <div class="inv-icon"><i class="${item.brand ? 'fab' : 'fas'} ${item.icon}"></i></div>
-            <span>${esc(item.name)}</span>
+          <div class="inv-item ${item.rarity}" title="${esc(item.name)} (${item.rarity})">
+            <div class="inv-slot"><div class="inv-icon">${iconHtml(item.icon)}</div></div>
+            <span class="inv-name">${esc(item.name)}</span>
+            <span class="inv-rarity-dot ${item.rarity}"></span>
           </div>`).join('')}
       </div>`;
   }
@@ -377,6 +459,14 @@ const App = (() => {
       <div class="terminal-input-line">
         <span class="term-prompt">devyani@os:~$</span>
         <input type="text" class="term-input" spellcheck="false" autocomplete="off" autofocus>
+      </div>`;
+  }
+
+  function renderChat() {
+    return `<div class="chat-messages"></div>
+      <div class="chat-input-bar">
+        <input type="text" class="chat-input" placeholder="Ask me anything about Devyani..." spellcheck="false" autocomplete="off">
+        <button class="chat-send"><i class="fas fa-paper-plane"></i></button>
       </div>`;
   }
 
@@ -499,6 +589,16 @@ const App = (() => {
 
   /* ── Util ── */
   function esc(s) { const d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
+
+  function iconHtml(ic) {
+    if (!ic) return '';
+    // Devicon: starts with "devicon-"
+    if (ic.startsWith('devicon-')) return `<i class="${ic}"></i>`;
+    // Font Awesome brand: starts with "fab-"
+    if (ic.startsWith('fab-')) return `<i class="fab ${ic.replace('fab-','fa-')}"></i>`;
+    // Default: Font Awesome solid
+    return `<i class="fas ${ic}"></i>`;
+  }
 
   /* ── Public ── */
   return { init, get activeProfile() { return activeProfile; } };

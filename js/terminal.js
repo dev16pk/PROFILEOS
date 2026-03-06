@@ -12,7 +12,8 @@ const Terminal = (() => {
     inputEl = termWindow.querySelector('.term-input');
     promptEl = termWindow.querySelector('.term-prompt');
     if (!inputEl) return;
-    promptEl.textContent = `devyani@${App.activeProfile || 'os'}:~$`;
+    const pName = (PROFILES[App.activeProfile] && PROFILES[App.activeProfile].name) || App.activeProfile || 'os';
+    promptEl.textContent = `devyani@${pName.toLowerCase()}:~$`;
     inputEl.addEventListener('keydown', onKey);
     inputEl.focus();
     printWelcome();
