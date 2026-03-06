@@ -343,7 +343,6 @@ input, textarea, select { font-family:var(--font); }
 .quest-icon-circle.has-logo { border-radius:50%; overflow:hidden; background:var(--bg-surface); }
 .quest-icon-circle.has-logo .quest-logo { width:65%; height:65%; }
 /* Self-contained logos (PNGs with built-in bg) — fill the circle */
-.quest-icon-circle.logo-hpi .quest-logo,
 .quest-icon-circle.logo-ibm .quest-logo,
 .quest-icon-circle.logo-km .quest-logo,
 .quest-icon-circle.logo-pmi .quest-logo,
@@ -351,7 +350,7 @@ input, textarea, select { font-family:var(--font); }
 .quest-icon-circle.logo-emedichelp .quest-logo,
 .quest-icon-circle.logo-cube .quest-logo { width:100%; height:100%; object-fit:cover; }
 /* Per-brand avatar backgrounds */
-.quest-icon-circle.logo-hpi { background:#0096D6; box-shadow:0 4px 12px rgba(0,150,214,.35); }
+.quest-icon-circle.logo-hpi { background:#ffffff; box-shadow:0 4px 12px rgba(0,150,214,.35); }
 .quest-icon-circle.logo-ibm { background:#1d1d1d; box-shadow:0 4px 12px rgba(29,29,29,.4); }
 .quest-icon-circle.logo-faro { background:#e8f0f8; box-shadow:0 4px 12px rgba(0,61,107,.2); }
 .quest-icon-circle.logo-km { background:#003087; box-shadow:0 4px 12px rgba(0,48,135,.35); }
