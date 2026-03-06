@@ -1,0 +1,29 @@
+One fine sunday afternoon after having lunch, mukesh(from the smaking ad yes) plans to take a nap but suddenly feels constriction 
+in his chest which he ignores and sleeps
+Later in the evening while he is coming back from strolling around his dog in the park he experiences it again only on a larger scale and he feels this is unignorable now
+He tries to shout out for help and his dog starts to bark, people notice this and they gather around, some are making videos while someone more sensible tries to unlock his phone, another someone gets water, another someone calls nearest ambulance, another someone says we need to take him to hospital, and if mukesh is lucky enough then another someone with some medical knowledge on what to do will provide required aid after diagnosing the current scenario
+Even if mukesh has his relatives instead of dog the panic situation will be somewhat similar
+But imagine if this happens when mukesh is entirely alone will be a lot worse
+In anyway the sitiuation turns chaotic when mukesh is in immense pain while different people take different actions and mukesh is losing important time which worsens his situation
+
+Rather than adding more chaos to the panic period there is a need to be making use of this time to follow the necessary steps to save mukesh
+
+Here with E-MedicalHELP we came up with a centralised process that needs to be followed in case of such medical emegency situations, note E here indicates emergency and not electronic
+All that "someone" needs to do is call the centralised helpline and answer 2 basic questions
+#name+phonenumber+aadharnumber(anyone available info)
+#the brief situation of patient right now
+In case the patient is alone, smart devices/smart assisstant on phone can send the details and call the emergency helpline and share video of the patient through permissions and accessibility 
+Based on this information and location the situation gets processed immediately(voice processing-nlp layers) and first result is the answer from helpline
+It could be location route to the nearest available hospital and the cab number(calculated based on medical records specific to a preffered doctor/hospital takes priority along with traffic, availability of doctor)/Emergency aid steps to follow/ambulance service call 
+Next the information processing goes onto a deeper level and divided into two branches 
+#where based on the name+phonenumber+adhaarnumber database injection is done and previous health records of patient are aligned and a complete diagnosis and treatment is compiled for the doctor
+(In case medical records are older than two months prediction diagnosis is done, In case no medical records are found cases with similar resonance are referred and then diagnosis is performed)
+#where based on hospital the pre-treatment procedures is streamlined, the registration is done, test labs and departments are streamlined, 
+staffs with free schedule are assigned to the E-Medical process are pre-aligned before arrival and alerted to help save time
+After the first response from the helpline based on these branches the second response are instructions given to the person accompanying patient, in case he is alone being carried by cab then cab driver is supposed to follow instructions, in case of ambulance the staff is aligned
+This whole process will make optimal use of the panic period and save crucial time beneficial in the treatment 
+
+
+ 
+
+

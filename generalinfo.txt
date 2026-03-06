@@ -1,0 +1,109 @@
+# DEVYANI P. KUMAR
+
+**Fullstack Developer · AI Architect · AWS Developer · Game Developer · SAP Solutions SME**
+
+---
+
+## About
+
+Technology professional with enterprise SAP products consulting expertise and a strong creative background in aws-genAI development, game app development, AI/ML research and open-source contributions to HAAR(human as a resource) sectors. Experienced in IronPython scripting, genAI workflow automation, aws technology, core REST API integrations and building end-to-end enterprise solutions. Passionate about innovation, logical optimal creativity, cost efficiency and bridging the gap between visions and real-world application.
+
+---
+
+## Contact
+
+| | |
+|---|---|
+| **Phone** | +(91) 7014405433 |
+| **Email** | dev16pk@gmail.com |
+
+---
+
+## Career Objective
+
+Work with an organization that provides opportunities to put skills of innovation and optimal logical creativity to good use and improve knowledge from the perspective of economic growth and development.
+
+---
+
+## Professional Experience
+Deloitte (sept 2020 - present)
+### Senior Developer (underwent 3 promotions withing 5 years analyst-developer-seniordeveloper)
+**Total Industrial Experience:** 5.5 years at Deloitte 
+source -- sapcpqfile.txt
+source -- genaiprofile.txt
+
+Have been integral part of Gurgaon AM&C community where developed end to end applications for all community events (dashboard applications, android/ios 2d games, AR and VR mobile and desktop applications)
+
+College projects ---->
+### MCOACH — Knowledge Ontology System
+**Type:** College Project | **Stack:** Python, OwlReady2, Keras
+
+An ontology developed using Python (OwlReady2) as part of a research internship, based on the primary concept that knowledge attained does not come to aid when required for dynamic application purposes. The project studies and predicts patterns to help improve the process of perceiving knowledge by humans via concepts of **Knowledge Representation** and **Cognitive Learning and Computation**. Creates the necessary difference between learning and using the knowledge for students and learners.
+
+---
+
+### CUBE DEALT — Rubik's Cube Optimizer
+**Type:** College Project | **Stack:** Python, TensorFlow, Evolutionary Algorithms
+
+A Python-based computer game built using genetic algorithms and techniques of heuristics. The system can analyze a 3×3 Rubik's Cube by its six faces and then processes them to find the best-suited algorithm to solve it in the **minimum time and moves possible**. Leverages TensorFlow and Evolutionary Algorithms for optimization of the time-moves ratio.
+
+---
+
+### CRASH SAVERS — Smart Road Safety System
+**Type:** Internship Project | **Stack:** IoT, Holographic Projection, Software-Hardware Integration
+
+A hardware device integrated with software that projects holographic images regarding road safety and traffic rules. Entitled as a proposal for **Smart Traffic and Road Safety** under proposals of Smart City designing, with the help of IoT and other technologies. Sponsored by:
+- **IRSC** (Indian Road Safety Campaign)
+- **MORTH** (Ministry of Road Transport and Highways)
+
+---
+
+### Game Design Portfolio (college days 2017-2020)
+**Duration:** 5 years | **Stack:** Panda3D, PyOpenGL, Python
+
+Extensive non-professional work in game designing and open-source development using Python. Contributions include:
+- Game designing using **Panda3D** engine for 3D environments
+- Graphics programming with **PyOpenGL**
+- Open-source modding contributions for **oceanofgames** and **iHackedit** communities
+- Building game mods and hacks
+
+---
+## Technical Skills
+### Programming & Scripting
+| Skill | Proficiency | Details 
+|---|---|---|
+| **Python** | ★★★★☆ | 3+ years — primary language for game dev, ML, research, and automation |
+| **IronPython** | ★★★☆☆ | Scripting for SAP CPQ global events and enterprise automation |
+| **.NET APIs** | ★★☆☆☆ | Server-side enterprise integration |
+| **REST APIs** | ★★☆☆☆ | RESTful service design and integration |
+
+### Enterprise & Cloud
+| Skill | Proficiency | Details |
+|---|---|---|
+| **SAP CPQ (Callidus Cloud)** | ★★★☆☆ | Product configuration, workflows, approval rules, scripting |
+| **Workflow Design** | ★★★☆☆ | Complex business process automation |
+
+### AI, ML & Research
+| Skill | Proficiency | Details |
+|---|---|---|
+| **Machine Learning** | ★★★☆☆ | Pattern prediction, optimization, classification |
+| **TensorFlow** | ★★★☆☆ | Deep learning model development |
+| **Keras** | ★★★☆☆ | Neural network APIs for research |
+| **Web Ontology (OwlReady2)** | ★★★☆☆ | Knowledge representation and semantic web |
+| **Metaheuristics** | ★★★☆☆ | Genetic algorithms, evolutionary optimization |
+| **Cognitive Computing** | ★★☆☆☆ | Human knowledge perception and learning patterns |
+
+### Game Development
+| Skill | Proficiency | Details |
+|---|---|---|
+| **Game Design** | ★★★★☆ | 3+ years of non-professional proficiency |
+| **Panda3D** | ★★★☆☆ | 3D game engine development and scene management |
+| **PyOpenGL** | ★★★☆☆ | Graphics programming with OpenGL bindings |
+| **Open Source Modding** | ★★★☆☆ | Game modifications and community contributions |
+
+---
+
+
+
+
+

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#0a0e17">
+  <title>DevyaniOS — Profile Operating System</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Fira+Code:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- ===== BOOT SCREEN ===== -->
+  <div id="boot-screen">
+    <div class="boot-content">
+      <div class="boot-logo"><i class="fas fa-user-astronaut"></i></div>
+      <h1 class="boot-title">DevyaniOS <span class="version">v3.0</span></h1>
+      <div class="boot-log" id="boot-log"></div>
+      <div class="boot-progress"><div class="boot-progress-bar" id="boot-bar"></div></div>
+      <p class="boot-status" id="boot-status">Initializing...</p>
+    </div>
+  </div>
+
+  <!-- ===== PROFILE SELECTOR ===== -->
+  <div id="profile-selector" class="hidden">
+    <div class="selector-particles" id="selector-particles"></div>
+    <div class="selector-content">
+      <div class="selector-avatar"><i class="fas fa-user-astronaut"></i></div>
+      <h2 class="selector-name">DEVYANI P. KUMAR</h2>
+      <p class="selector-subtitle">Senior Developer · AI Architect · SAP Solutions SME</p>
+      <div class="profile-cards" id="profile-cards"></div>
+      <div class="selector-footer">
+        <button class="admin-link" id="admin-login-btn"><i class="fas fa-lock"></i> Admin Access</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ADMIN LOGIN MODAL ===== -->
+  <div id="admin-modal" class="modal hidden">
+    <div class="modal-overlay"></div>
+    <div class="modal-box">
+      <h3><i class="fas fa-shield-alt"></i> Admin Authentication</h3>
+      <p>Enter admin credentials to access the dashboard.</p>
+      <input type="password" id="admin-pass" placeholder="Password" autocomplete="off">
+      <div class="modal-actions">
+        <button class="btn-secondary" id="admin-cancel">Cancel</button>
+        <button class="btn-primary" id="admin-submit">Authenticate</button>
+      </div>
+      <p class="modal-error hidden" id="admin-error">Invalid credentials.</p>
+    </div>
+  </div>
+
+  <!-- ===== MAIN DESKTOP ===== -->
+  <div id="desktop" class="hidden">
+    <!-- Taskbar -->
+    <div class="taskbar">
+      <div class="taskbar-left">
+        <button class="start-btn" id="start-btn"><i class="fas fa-rocket"></i> <span class="start-label">START</span></button>
+        <div class="taskbar-apps" id="taskbar-apps"></div>
+      </div>
+      <div class="taskbar-right">
+        <div class="profile-badge" id="profile-badge"></div>
+        <button class="taskbar-icon" id="back-to-profiles" title="Switch Profile"><i class="fas fa-th"></i></button>
+        <div class="system-tray">
+          <span class="clock" id="clock"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Start Menu -->
+    <div class="start-menu hidden" id="start-menu">
+      <div class="start-menu-header">
+        <i class="fas fa-user-astronaut"></i>
+        <div><strong>Devyani P. Kumar</strong><span id="start-menu-role"></span></div>
+      </div>
+      <div class="start-menu-items" id="start-menu-items"></div>
+    </div>
+
+    <!-- Desktop Icons Container -->
+    <div class="desktop-icons" id="desktop-icons"></div>
+
+    <!-- Window Container -->
+    <div id="windows-container"></div>
+
+    <!-- Notification Toast -->
+    <div class="toast hidden" id="toast">
+      <div class="toast-icon"><i class="fas fa-trophy"></i></div>
+      <div class="toast-content">
+        <strong id="toast-title"></strong>
+        <p id="toast-text"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ADMIN DESKTOP ===== -->
+  <div id="admin-desktop" class="hidden">
+    <div class="admin-topbar">
+      <div class="admin-topbar-left">
+        <i class="fas fa-shield-alt"></i>
+        <strong>DevyaniOS Admin Dashboard</strong>
+      </div>
+      <div class="admin-topbar-right">
+        <button class="btn-secondary btn-sm" id="admin-back"><i class="fas fa-arrow-left"></i> Back to Profiles</button>
+      </div>
+    </div>
+    <div class="admin-layout">
+      <nav class="admin-sidebar" id="admin-sidebar"></nav>
+      <main class="admin-main" id="admin-main"></main>
+    </div>
+  </div>
+
+  <script src="js/profiles.js"></script>
+  <script src="js/terminal.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
