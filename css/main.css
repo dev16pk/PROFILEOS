@@ -370,12 +370,13 @@ input, textarea, select { font-family:var(--font); }
 .quest-icon-circle.logo-irsc { background:#ffffff; box-shadow:0 4px 12px rgba(12,74,110,.3); }
 .quest-icon-circle.logo-explainosphere { background:#ffffff; box-shadow:0 4px 12px rgba(0,100,200,.25); }
 .quest-icon-circle.logo-navgyan { background:#ffffff; box-shadow:0 4px 12px rgba(0,0,0,.2); }
-.quest-icon-circle.logo-navgyan .quest-logo,
+.quest-icon-circle.logo-navgyan .quest-logo { width:100%; height:100%; object-fit:cover; border-radius:50%; }
 .quest-icon-circle.logo-explainosphere .quest-logo { width:80%; height:80%; object-fit:contain; }
 .quest-icon-circle.green { background:linear-gradient(135deg,var(--green),#059669); box-shadow:0 4px 12px rgba(34,197,94,.3); }
 .quest-icon-circle.gold { background:linear-gradient(135deg,var(--gold),var(--orange)); box-shadow:0 4px 12px rgba(245,158,11,.3); }
 .quest-icon-circle.blue { background:linear-gradient(135deg,var(--accent),var(--cyan)); box-shadow:0 4px 12px rgba(99,102,241,.3); }
 .quest-header { display:flex; align-items:center; gap:.5rem; margin-bottom:.3rem; flex-wrap:wrap; }
+.quest-body { flex:1; min-width:0; }
 .quest-body h4 { font-size:.85rem; font-weight:700; }
 .quest-body p { font-size:.74rem; color:var(--text-2); line-height:1.55; margin-bottom:.5rem; }
 .quest-status { font-size:.48rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; padding:.15rem .45rem; border-radius:4px; font-family:var(--font-mono); }
