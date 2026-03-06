@@ -86,34 +86,16 @@ const App = (() => {
     const liveProfiles = PROFILE_ORDER.filter(key => !PROFILES[key].comingSoon);
     container.innerHTML = liveProfiles.map(key => {
       const p = PROFILES[key];
-      const skillIcons = (p.cardSkills || []).map(s => {
-        const ic = s.icon.startsWith('devicon-') ? `<i class="${s.icon}"></i>` : `<i class="fas ${s.icon}"></i>`;
-        return `<div class="card-showcase-item" title="${esc(s.name)}">${ic}<span>${esc(s.name)}</span></div>`;
-      }).join('');
-      const companyIcons = (p.cardCompanies || []).map(c => {
-        return `<div class="card-company-item" title="${esc(c.name)}"><img class="co-logo" src="${esc(c.logo)}" alt="${esc(c.name)}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="co-fallback" style="display:none;background:${c.color}">${esc(c.name.charAt(0))}</span><span class="co-name">${esc(c.name)}</span></div>`;
-      }).join('');
-      const hasShowcase = skillIcons || companyIcons;
+      const deloitteBadge = p.cardDeloitte ? `<div class="card-deloitte"><span class="dl-text">Deloitte</span><span class="dl-dot"></span></div>` : '';
       return `
-        <div class="profile-card${hasShowcase ? ' card-expanded' : ''}" data-profile="${key}">
+        <div class="profile-card" data-profile="${key}">
           <span class="card-badge ${p.badgeClass}">${esc(p.badge)}</span>
+          ${deloitteBadge}
           <div class="card-top">
             <div class="card-icon"><i class="fas ${p.icon}"></i></div>
             <h3>${esc(p.name)}</h3>
             <p>${esc(p.tagline)}</p>
           </div>
-          ${hasShowcase ? `
-          <div class="card-showcase">
-            <div class="card-showcase-col">
-              <div class="showcase-label"><i class="fas fa-code"></i> Tech Stack</div>
-              <div class="showcase-grid">${skillIcons}</div>
-            </div>
-            <div class="card-showcase-divider"></div>
-            <div class="card-showcase-col">
-              <div class="showcase-label"><i class="fas fa-building"></i> Clients</div>
-              <div class="showcase-grid co-grid">${companyIcons}</div>
-            </div>
-          </div>` : ''}
         </div>`;
     }).join('');
     container.querySelectorAll('.profile-card').forEach(card => {
@@ -177,6 +159,7 @@ const App = (() => {
     renderAboutPanel(p);
     renderDesktopIcons(p);
     bindTaskbar();
+    pinTerminalToTaskbar();
     startClock();
     setTimeout(() => showToast('Profile Loaded', `Welcome to ${p.name}!`), 800);
   }
@@ -189,15 +172,15 @@ const App = (() => {
       <div class="attr-box"><span class="attr-key">${esc(at.key)}</span><span class="attr-val">${esc(at.val)}</span><span class="attr-desc">${esc(at.desc)}</span></div>
     `).join('');
     const statCards = (p.stats || []).map(s => `
-      <div class="stat-card">
-        <div class="stat-icon"><i class="fas ${s.icon}"></i></div>
+      <div class="stat-card stat-card--${s.color}">
+        <div class="stat-icon">${iconHtml(s.icon)}</div>
         <div class="stat-name">${esc(s.name)}</div>
         <div class="stat-bar"><div class="stat-fill ${s.color}" data-val="${s.value}"></div></div>
         <div class="stat-value">${s.value}%</div>
       </div>`).join('');
     panel.innerHTML = `
       <div class="about-hero">
-        <div class="deloitte-badge"><img src="https://logo.clearbit.com/deloitte.com" alt="Deloitte" onerror="this.parentElement.style.display='none'"><span>Deloitte</span></div>
+        <div class="deloitte-badge"><span class="dl-text">Deloitte</span><span class="dl-dot"></span></div>
         <img src="assets/profile.jpg" alt="${esc(a.name)}" class="about-photo">
         <div class="about-info">
           <h2 class="about-name">${esc(a.name)}</h2>
@@ -209,15 +192,23 @@ const App = (() => {
       <div class="stats-grid" style="margin-top:1rem">${statCards}</div>`;
     setTimeout(() => {
       panel.querySelectorAll('.stat-fill[data-val]').forEach(bar => { bar.style.width = bar.dataset.val + '%'; });
+      panel.querySelectorAll('.stat-card').forEach(card => {
+        card.addEventListener('click', () => {
+          const wasOpen = card.classList.contains('tip-open');
+          panel.querySelectorAll('.stat-card.tip-open').forEach(c => c.classList.remove('tip-open'));
+          if (!wasOpen) card.classList.add('tip-open');
+        });
+      });
     }, 400);
   }
 
   function renderDesktopIcons(p) {
     const container = document.getElementById('desktop-icons');
     container.innerHTML = (p.desktopIcons || []).map(i => `
-      <div class="desktop-icon" data-win="${i.id}" title="${esc(i.label)}">
+      <div class="desktop-icon" data-win="${i.id}">
         <div class="icon-img" style="background:${i.color}"><i class="fas ${i.icon}"></i></div>
         <span>${esc(i.label)}</span>
+        <div class="desk-tooltip">${esc(i.label)}</div>
       </div>`).join('');
     container.querySelectorAll('.desktop-icon').forEach(icon => {
       icon.addEventListener('click', () => openWindow(icon.dataset.win));
@@ -296,6 +287,7 @@ const App = (() => {
 
     const isTerminal = id === 'terminal';
     const isChat = id === 'chat';
+    const isGame = id === 'skytiles';
     win.innerHTML = `
       <div class="window-header ${isTerminal ? 'terminal-header' : ''}">
         <div class="window-title"><i class="fas ${cfg.icon}"></i> ${esc(cfg.title)}</div>
@@ -305,7 +297,7 @@ const App = (() => {
           <button class="win-btn close" title="Close"><i class="fas fa-xmark"></i></button>
         </div>
       </div>
-      <div class="window-body ${isTerminal ? 'terminal-body' : ''} ${isChat ? 'chat-body' : ''}">${cfg.body}</div>`;
+      <div class="window-body ${isTerminal ? 'terminal-body' : ''} ${isChat ? 'chat-body' : ''} ${isGame ? 'st-body' : ''}">${cfg.body}</div>`;
 
     document.getElementById('windows-container').appendChild(win);
     bringToFront(win);
@@ -314,6 +306,7 @@ const App = (() => {
     makeDraggable(win);
     if (isTerminal) Terminal.init(win.querySelector('.window-body'));
     if (isChat) Chat.init(win.querySelector('.window-body'));
+    if (isGame) SkyTiles.init(win.querySelector('.st-container'));
     animateStatBars(win);
   }
 
@@ -326,7 +319,8 @@ const App = (() => {
       achievements: { title: 'Achievements', icon: 'fa-trophy', w: 560, h: 500, body: renderAchievements(p) },
       inventory: { title: 'Inventory', icon: 'fa-boxes-stacked', w: 520, h: 420, body: renderInventory(p) },
       chat: { title: 'Ask Me Anything', icon: 'fa-comments', w: 440, h: 480, body: renderChat() },
-      terminal: { title: 'Terminal', icon: 'fa-terminal', w: 560, h: 380, body: renderTerminal() }
+      terminal: { title: 'Terminal', icon: 'fa-terminal', w: 560, h: 380, body: renderTerminal() },
+      skytiles: { title: 'Sky Tiles', icon: 'fa-jedi', w: 420, h: 520, body: '<div class="st-container"></div>' }
     };
     return cfgs[id] || null;
   }
@@ -339,7 +333,7 @@ const App = (() => {
       <div class="attr-box"><span class="attr-key">${esc(at.key)}</span><span class="attr-val">${esc(at.val)}</span><span class="attr-desc">${esc(at.desc)}</span></div>
     `).join('');
     const statCards = (p.stats || []).map(s => `
-      <div class="stat-card">
+      <div class="stat-card stat-card--${s.color}">
         <div class="stat-icon">${iconHtml(s.icon)}</div>
         <div class="stat-name">${esc(s.name)}</div>
         <div class="stat-bar"><div class="stat-fill ${s.color}" data-val="${s.value}"></div></div>
@@ -398,16 +392,32 @@ const App = (() => {
       ${tabs.map((t, i) => `
         <div class="quest-list${i > 0 ? ' hidden' : ''}" data-tab-body="${esc(t)}">
           ${(p.quests[t] || []).map(q => {
-            const statusLabel = q.status === 'done' ? 'COMPLETE' : q.status === 'active' ? 'IN PROGRESS' : 'LOCKED';
-            const statusClass = q.status === 'done' ? 'status-done' : q.status === 'active' ? 'status-active' : 'status-locked';
+            const isActive = q.status === 'active' || q.status === 'ongoing';
+            const statusLabel = q.status === 'done' ? 'COMPLETE' : isActive ? 'IN PROGRESS' : 'LOCKED';
+            const statusClass = q.status === 'done' ? 'status-done' : isActive ? 'status-active' : 'status-locked';
+            const hasTimeline = q.timeline && q.timeline.length;
             return `
-            <div class="quest-card ${q.status}">
-              <div class="quest-icon-wrap"><div class="quest-icon-circle ${q.barColor || 'green'}">${iconHtml(q.icon)}</div></div>
+            <div class="quest-card ${q.status === 'ongoing' ? 'active' : q.status}${hasTimeline ? ' has-timeline' : ''}">
+              <div class="quest-icon-wrap"><div class="quest-icon-circle ${q.logo ? `has-logo logo-${q.logo.split('/').pop().split('.')[0]}` : (q.barColor || 'green')}">${q.logo ? `<img src="${esc(q.logo)}" alt="" class="quest-logo">` : iconHtml(q.icon)}</div></div>
               <div class="quest-body">
-                <div class="quest-header"><h4>${esc(q.title)}</h4><span class="quest-status ${statusClass}">${statusLabel}</span></div>
+                <div class="quest-header"><h4>${esc(q.title)}</h4>${q.date ? `<span class="quest-date"><i class="fas fa-calendar-alt"></i> ${esc(q.date)}</span>` : ''}${q.role ? `<span class="quest-role"><i class="fas fa-user-tag"></i> ${esc(q.role)}</span>` : ''}<span class="quest-status ${statusClass}">${statusLabel}</span></div>
                 <p>${esc(q.desc)}</p>
                 <div class="quest-tags">${(q.tags || []).map(tg => `<span class="tag">${esc(tg)}</span>`).join('')}</div>
-                <div class="quest-bar"><div class="quest-bar-fill ${q.barColor}" style="width:${q.bar}%"></div></div>
+                <div class="quest-bar-wrap"><div class="quest-bar"><div class="quest-bar-fill ${q.barColor}" style="width:${q.bar}%"></div></div><span class="quest-bar-pct">${q.bar}%</span></div>
+                ${hasTimeline ? `
+                <button class="quest-timeline-toggle" onclick="this.closest('.quest-card').classList.toggle('timeline-open');this.querySelector('.toggle-icon').classList.toggle('rotated')">
+                  <i class="fas fa-route"></i> Milestones <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                </button>
+                <div class="quest-timeline">
+                  ${q.timeline.map((m, idx) => `
+                  <div class="qtl-step">
+                    <div class="qtl-marker"><span class="qtl-num">${idx + 1}</span></div>
+                    <div class="qtl-content">
+                      <div class="qtl-phase">${esc(m.phase)}</div>
+                      <div class="qtl-detail">${esc(m.detail)}</div>
+                    </div>
+                  </div>`).join('')}
+                </div>` : ''}
               </div>
             </div>`;
           }).join('')}
@@ -417,15 +427,16 @@ const App = (() => {
   function renderAchievements(p) {
     if (!p.achievements) return '<p>No achievements.</p>';
     const unlocked = p.achievements.filter(a => a.unlocked).length;
-    const byRarity = { legendary: 0, epic: 0, rare: 0 };
+    const byRarity = { legendary: 0, epic: 0, elite: 0 };
+    const achLabel = { legendary: 'Ascended', epic: 'Vanguard', elite: 'Forged' };
     p.achievements.forEach(a => { if (a.unlocked && byRarity[a.rarity] !== undefined) byRarity[a.rarity]++; });
     return `<div class="section-title pixel-title"><i class="fas fa-trophy"></i> Achievements</div>
       <div class="ach-summary">
         <div class="ach-ring"><svg viewBox="0 0 36 36" class="ach-ring-svg"><path class="ach-ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" /><path class="ach-ring-fill" stroke-dasharray="${(unlocked/p.achievements.length*100).toFixed(0)}, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" /></svg><div class="ach-ring-text"><span class="ach-big">${unlocked}</span><span class="ach-lbl">/${p.achievements.length}</span></div></div>
         <div class="ach-rarity-breakdown">
-          <div class="ach-rb legendary"><i class="fas fa-gem"></i> ${byRarity.legendary} Legendary</div>
-          <div class="ach-rb epic"><i class="fas fa-star"></i> ${byRarity.epic} Epic</div>
-          <div class="ach-rb rare"><i class="fas fa-circle"></i> ${byRarity.rare} Rare</div>
+          <div class="ach-rb legendary"><i class="fas fa-gem"></i> ${byRarity.legendary} Ascended</div>
+          <div class="ach-rb epic"><i class="fas fa-star"></i> ${byRarity.epic} Vanguard</div>
+          <div class="ach-rb elite"><i class="fas fa-circle"></i> ${byRarity.elite} Forged</div>
         </div>
       </div>
       <div class="ach-grid">
@@ -433,20 +444,21 @@ const App = (() => {
           <div class="ach-item ${a.rarity}${a.unlocked ? '' : ' locked'}">
             <div class="ach-icon ${a.rarity}">${iconHtml(a.icon)}</div>
             <div class="ach-info"><h4>${esc(a.title)}</h4><p>${esc(a.desc)}</p></div>
-            <span class="ach-rarity ${a.rarity}">${a.rarity}</span>
+            <span class="ach-rarity ${a.rarity}">${achLabel[a.rarity] || a.rarity}</span>
           </div>`).join('')}
       </div>`;
   }
 
   function renderInventory(p) {
     if (!p.inventory) return '<p>Empty inventory.</p>';
-    const counts = { legendary: 0, epic: 0, rare: 0 };
+    const counts = { legendary: 0, epic: 0, elite: 0 };
     p.inventory.forEach(i => { if (counts[i.rarity] !== undefined) counts[i.rarity]++; });
+    const invLabel = { legendary: 'Mythic', epic: 'Exotic', elite: 'Refined' };
     return `<div class="section-title pixel-title"><i class="fas fa-boxes-stacked"></i> Tech Inventory <span class="inv-counter">${p.inventory.length} items</span></div>
-      <div class="inv-legend"><span class="inv-leg legendary"><i class="fas fa-gem"></i> ${counts.legendary} Legendary</span><span class="inv-leg epic"><i class="fas fa-star"></i> ${counts.epic} Epic</span><span class="inv-leg rare"><i class="fas fa-circle"></i> ${counts.rare} Rare</span></div>
+      <div class="inv-legend"><span class="inv-leg legendary"><i class="fas fa-gem"></i> ${counts.legendary} Mythic</span><span class="inv-leg epic"><i class="fas fa-star"></i> ${counts.epic} Exotic</span><span class="inv-leg elite"><i class="fas fa-circle"></i> ${counts.elite} Refined</span></div>
       <div class="inv-grid">
         ${p.inventory.map(item => `
-          <div class="inv-item ${item.rarity}" title="${esc(item.name)} (${item.rarity})">
+          <div class="inv-item ${item.rarity}" title="${esc(item.name)} (${invLabel[item.rarity] || item.rarity})">
             <div class="inv-slot"><div class="inv-icon">${iconHtml(item.icon)}</div></div>
             <span class="inv-name">${esc(item.name)}</span>
             <span class="inv-rarity-dot ${item.rarity}"></span>
@@ -503,7 +515,8 @@ const App = (() => {
   /* ── Taskbar apps ── */
   function addTaskbarApp(id, cfg) {
     const bar = document.getElementById('taskbar-apps');
-    if (bar.querySelector(`[data-win="${id}"]`)) return;
+    const existing = bar.querySelector(`[data-win="${id}"]`);
+    if (existing) { existing.classList.add('active-app'); return; }
     const btn = document.createElement('button');
     btn.className = 'taskbar-app active-app';
     btn.dataset.win = id;
@@ -516,7 +529,18 @@ const App = (() => {
   }
   function removeTaskbarApp(id) {
     const btn = document.getElementById('taskbar-apps').querySelector(`[data-win="${id}"]`);
-    if (btn) btn.remove();
+    if (btn && !btn.classList.contains('taskbar-app--pinned')) btn.remove();
+  }
+
+  function pinTerminalToTaskbar() {
+    const bar = document.getElementById('taskbar-apps');
+    if (bar.querySelector('[data-win="terminal"]')) return;
+    const btn = document.createElement('button');
+    btn.className = 'taskbar-app taskbar-app--pinned';
+    btn.dataset.win = 'terminal';
+    btn.innerHTML = '<i class="fas fa-terminal"></i> Terminal';
+    btn.onclick = () => openWindow('terminal');
+    bar.appendChild(btn);
   }
 
   /* ── Dragging ── */

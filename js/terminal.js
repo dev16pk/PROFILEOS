@@ -76,11 +76,11 @@ const Terminal = (() => {
       },
       experience: () => {
         printLine('<span class="term-accent">Career Timeline</span>');
-        printLine('  2019 — Joined Deloitte as Analyst');
-        printLine('  2020 — Promoted to Developer');
-        printLine('  2022 — Promoted to Senior Developer');
-        printLine('  2024 — 5.5 years, 14+ projects delivered');
-        printLine('  Total promotions: 3');
+        printLine('  Sept 2020 — Joined Deloitte as Analyst');
+        printLine('  2022 — Promoted to Developer');
+        printLine('  2024 — Promoted to Senior Developer');
+        printLine('  2025 — 5.5 years, 14+ projects delivered');
+        printLine('  Total promotions: 2');
       },
       projects: () => {
         if (!p || !p.quests) { printLine('No project data.'); return; }
@@ -108,12 +108,12 @@ const Terminal = (() => {
       },
       contact: () => {
         printLine('<span class="term-accent">Contact</span>');
-        printLine('  Email   : devyani.kumar@consulting.deloitte.com');
-        printLine('  Role    : Senior Developer, Deloitte USI');
+        printLine('  Email   : dev16pk@gmail.com');
+        printLine('  Phone   : +91-7014405433');
       },
       clear: () => { if (outputEl) outputEl.innerHTML = ''; },
       neofetch: () => {
-        printLine('<span class="term-accent">DevyaniOS v3.0</span>');
+        printLine('<span class="term-accent">Devyani_pOS v20.26</span>');
         printLine(`  Profile : ${p ? escHtml(p.name) : 'none'}`);
         printLine(`  Engine  : Vanilla JS`);
         printLine('  Host    : Browser Runtime');
@@ -133,7 +133,7 @@ const Terminal = (() => {
   }
 
   function printWelcome() {
-    printLine('<span class="term-accent">DevyaniOS Terminal v3.0</span>');
+    printLine('<span class="term-accent">Devyani_pOS Terminal v20.26</span>');
     printLine('Type <span class="term-cmd">help</span> for a list of commands.\n');
     scrollBottom();
   }
