@@ -444,7 +444,7 @@ const App = (() => {
     p.achievements.forEach(a => { if (a.unlocked && byRarity[a.rarity] !== undefined) byRarity[a.rarity]++; });
     return `<div class="section-title pixel-title"><i class="fas fa-trophy"></i> Achievements</div>
       <div class="ach-summary">
-        <div class="ach-ring"><svg viewBox="0 0 36 36" class="ach-ring-svg"><path class="ach-ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" /><path class="ach-ring-fill" stroke-dasharray="${(unlocked/p.achievements.length*100).toFixed(0)}, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" /></svg><div class="ach-ring-text"><span class="ach-big">${unlocked}</span><span class="ach-lbl">/${p.achievements.length}</span></div></div>
+        <div class="ach-ring"><svg viewBox="0 0 36 36" class="ach-ring-svg"><path class="ach-ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" /><path class="ach-ring-fill" stroke-dasharray="${(unlocked/p.achievements.length*100).toFixed(0)}, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" /></svg><div class="ach-ring-text"><span class="ach-big">${unlocked}</span></div></div>
         <div class="ach-rarity-breakdown">
           <div class="ach-rb legendary"><i class="fas fa-gem"></i> ${byRarity.legendary} Ascended</div>
           <div class="ach-rb epic"><i class="fas fa-star"></i> ${byRarity.epic} Vanguard</div>
