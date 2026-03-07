@@ -8,10 +8,10 @@ const SkyTiles = (() => {
   /* ---------- constants ---------- */
   const COLS       = 4;
   const MAX_LIVES  = 3;
-  const BASE_SPEED = 2.4;
-  const SPEED_INC  = 0.18;
-  const SPAWN_BASE = 820;
-  const SPAWN_MIN  = 320;
+  const BASE_SPEED = 1.0;
+  const SPEED_INC  = 0.2;
+  const SPAWN_BASE = 1400;
+  const SPAWN_MIN  = 300;
   const TILE_DEPTH = 0.12;       // how "long" a tile is in p-space
 
   const SABER = [
@@ -281,12 +281,12 @@ const SkyTiles = (() => {
     // --- shake decay ---
     if (shakeT > 0) shakeT -= dt;
 
-    // --- level up ---
-    var nl = Math.floor(score/8)+1;
+    // --- level up (gradual curve: slow start → fast later) ---
+    var nl = Math.floor(score/5)+1;
     if (nl>level) {
       level = nl;
-      speed = BASE_SPEED + (level-1)*SPEED_INC;
-      spawnIv = Math.max(SPAWN_MIN, SPAWN_BASE - (level-1)*45);
+      speed = BASE_SPEED + (level-1)*SPEED_INC + (level-1)*(level-1)*0.02;
+      spawnIv = Math.max(SPAWN_MIN, SPAWN_BASE - (level-1)*60);
       hud();
     }
   }
