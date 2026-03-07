@@ -134,7 +134,7 @@ const PROFILES = {
           ]
         },
         { title: 'IBMHW', date: '2023 – 2024', status: 'done', icon: 'fa-desktop', logo: 'assets/logos/ibm.png', desc: '1 year: 3D/AR product views, WatsonX automation, GraphQL microservices, probabilistic custom solutions, ML proficiency scoring.', tags: ['CPQ','AR/3D','WatsonX','ML','GraphQL','Deterministic Math'], bar: 100, barColor: 'green',
-          role: 'Developer',
+          role: 'Fullstack Developer',
           timeline: [
             { phase: '3D/AR Product Views', detail: 'Integrated 3D and AR visualization for IBM Hardware product catalog' },
             { phase: 'WatsonX Automation', detail: 'Automated product recommendation and configuration using WatsonX AI' },
@@ -197,7 +197,7 @@ const PROFILES = {
       ],
       'GenAI': [
         { title: 'PMI SMT', date: '2026', status: 'ongoing', icon: 'fa-gem', logo: 'assets/logos/pmi.png', desc: 'Gemini-powered executive mentorship app with voice sensitivity and user profiling.', tags: ['Gemini','Voice AI','Profiling'], bar: 55, barColor: 'blue',
-          role: 'Lead Fullstack Developer',
+          role: 'Fullstack Developer',
           timeline: [
             { phase: 'User Profiling System', detail: 'Built executive profiling engine capturing leadership style and growth areas' },
             { phase: 'Gemini LLM Integration', detail: 'Connected Gemini API for context-aware mentorship guidance and feedback' },
@@ -205,8 +205,8 @@ const PROFILES = {
             { phase: 'Pilot Launch', detail: 'Deployed pilot with PMI executive cohort and gathered feedback for iteration' }
           ]
         },
-        { title: 'AI ADVANTAGE', date: '2025 – 2026', status: 'ongoing', icon: 'fa-wand-magic-sparkles', logo: 'assets/logos/deloitte.png', desc: 'Contract data extraction with AWS Strand Agents, RAG/MCP, LangChain/LangGraph. Sold to Disney, ESPN, BioMarin.', tags: ['AWS','RAG','MCP','LangChain','LangGraph'], bar: 85, barColor: 'blue',
-          role: 'AI Architect/Agent Developer',
+        { title: 'AI ADVANTAGE', date: '2025 – 2026', status: 'ongoing', icon: 'fa-wand-magic-sparkles', logo: 'assets/logos/deloitte.png', desc: 'Contract data extraction with AWS Strand Agents, RAG/MCP, LangChain/LangGraph. Sold to Disney, ESPN, BioMarin and Fedex', tags: ['AWS','RAG','MCP','LangChain','LangGraph', 'Fintech'], bar: 85, barColor: 'blue',
+          role: 'AI Architect & Agent Developer',
           timeline: [
             { phase: 'Architecture & POC', detail: 'Designed agentic RAG architecture using AWS Strand Agents and LangChain/LangGraph' },
             { phase: 'Contract Extraction Pipeline', detail: 'Built intelligent document parsing with MCP-based multi-agent orchestration' },
