@@ -30,12 +30,12 @@ const PROFILES = {
 
     /* —— Stats —— */
     stats: [
-      { name: 'SAP Solutions', value: 95, color: 'blue', icon: 'fa-gears', projects: ['IBMSW', 'HPI', 'IBMHW', 'KONIKA MINOLTA', 'FARO', 'ROGERS', 'DTNA', 'Kelloggs'] },
-      { name: 'GenAI & LLMs', value: 90, color: 'pink', icon: 'fa-brain', projects: ['AI ADVANTAGE', 'SANOFI', 'PMI SMT', 'Explainosphere'] },
-      { name: 'Backend Systems', value: 88, color: 'green', icon: 'devicon-python-plain', projects: ['AI ADVANTAGE', 'SANOFI', 'IBMSW', 'HPI', 'E-MedicalHELP'] },
-      { name: 'Game & Creative', value: 86, color: 'pink', icon: 'fa-gamepad', projects: ['AM&C Community Apps', 'CUBE DEALT', 'IBMHW 3D/AR'] },
-      { name: 'Cloud & DevOps', value: 85, color: 'blue', icon: 'devicon-amazonwebservices-plain-wordmark', projects: ['AI ADVANTAGE', 'SANOFI', 'HPI', 'Explainosphere'] },
-      { name: 'Frontend & UI', value: 82, color: 'gold', icon: 'devicon-react-original', projects: ['Explainosphere', 'IBMSW Commerce', 'Kelloggs', 'PMI SMT'] }
+      { name: 'SAP Solutions', value: 95, color: 'green', icon: 'fa-gears', projects: ['IBMSW', 'HPI', 'IBMHW', 'KONIKA MINOLTA', 'FARO', 'ROGERS', 'DTNA', 'Kelloggs'] },
+      { name: 'GenAI & LLMs', value: 90, color: 'teal', icon: 'fa-brain', projects: ['AI ADVANTAGE', 'SANOFI', 'PMI SMT', 'Explainosphere'] },
+      { name: 'Backend Systems', value: 88, color: 'blue', icon: 'devicon-python-plain', projects: ['AI ADVANTAGE', 'SANOFI', 'IBMSW', 'HPI', 'E-MedicalHELP'] },
+      { name: 'Game & Creative', value: 86, color: 'violet', icon: 'fa-gamepad', projects: ['AM&C Community Apps', 'CUBE DEALT', 'IBMHW 3D/AR'] },
+      { name: 'Cloud & DevOps', value: 85, color: 'mauve', icon: 'devicon-amazonwebservices-plain-wordmark', projects: ['AI ADVANTAGE', 'SANOFI', 'HPI', 'Explainosphere'] },
+      { name: 'Frontend & UI', value: 82, color: 'pink', icon: 'devicon-react-original', projects: ['Explainosphere', 'IBMSW Commerce', 'Kelloggs', 'PMI SMT'] }
     ],
 
     /* —— Skill Tree —— */
@@ -205,12 +205,12 @@ const PROFILES = {
             { phase: 'Pilot Launch', detail: 'Deployed pilot with PMI executive cohort and gathered feedback for iteration' }
           ]
         },
-        { title: 'AI ADVANTAGE', date: '2025 – 2026', status: 'ongoing', icon: 'fa-wand-magic-sparkles', logo: 'assets/logos/deloitte.png', desc: 'Contract data extraction with AWS Strand Agents, RAG/MCP, LangChain/LangGraph. Sold to Disney, ESPN, BioMarin and Fedex', tags: ['AWS','RAG','MCP','LangChain','LangGraph', 'Fintech'], bar: 85, barColor: 'blue',
+        { title: 'AI ADVANTAGE', date: '2025 – 2026', status: 'ongoing', icon: 'fa-wand-magic-sparkles', logo: 'assets/logos/deloitte.png', desc: 'Contract data extraction with AWS Strand Agents, RAG/MCP, LangChain/LangGraph. Sold to Disney, ESPN, BioMarin and FedEx', tags: ['AWS','RAG','MCP','LangChain','LangGraph', 'Fintech'], bar: 85, barColor: 'blue',
           role: 'AI Architect & Agent Developer',
           timeline: [
             { phase: 'Architecture & POC', detail: 'Designed agentic RAG architecture using AWS Strand Agents and LangChain/LangGraph' },
             { phase: 'Contract Extraction Pipeline', detail: 'Built intelligent document parsing with MCP-based multi-agent orchestration' },
-            { phase: 'Enterprise Clients', detail: 'Productionized for Disney, ESPN, and BioMarin — handling real contract workflows' },
+            { phase: 'Enterprise Clients', detail: 'Productionized for Disney, ESPN, BioMarin, and FedEx — handling real contract workflows' },
             { phase: 'Scale & Optimization', detail: 'Optimized retrieval latency and token costs for enterprise-scale ingestion' }
           ]
         },

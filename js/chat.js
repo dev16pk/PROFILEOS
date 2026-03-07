@@ -12,19 +12,19 @@ const Chat = (() => {
     role: 'Senior Developer at Deloitte',
     experience: '5.5 years at Deloitte (joined Sept 2020)',
     promotions: 'Promoted twice: Analyst (Sept 2020) → Consultant/Developer (2022) → Senior Consultant/Senior Developer (2025)',
-    education: 'BTech Computer Science with specialisation in Cognitive Computing',
+    education: 'BTech in Computer Science (Specialization: Cognitive Computing) from IIIT Delhi, and is pursuing an MSc in Applications of Mathematics from Chennai Mathematical Institute (CMI)',
     location: 'India',
     company: 'Deloitte',
     phone: '+(91) 7014405433',
     email: 'dev16pk@gmail.com',
 
-    bio: `Devyani P. Kumar is a 26-year-old Senior Developer at Deloitte with 5.5 years of experience. She holds a BTech in Computer Science with specialisation in Cognitive Computing. She specializes in SAP CPQ solutions, GenAI/LLM architectures, and fullstack development. She has been promoted twice — Analyst (2020) → Consultant (2022) → Senior Consultant (2025). She has delivered 14+ projects across enterprise SAP, GenAI, social impact, and college research, and is recognized as a SAP Solutions SME and AI Architect.`,
+    bio: `Devyani P. Kumar is a 26-year-old Senior Developer at Deloitte with 5.5 years of experience. She holds a BTech in Computer Science (Specialization: Cognitive Computing) from IIIT Delhi and is currently pursuing an MSc in Applications of Mathematics from Chennai Mathematical Institute (CMI), with research in Rubik's Cube Optimization using Evolutionary Algorithms. She specializes in SAP CPQ solutions, GenAI/LLM architectures, and fullstack development. She has been promoted twice — Analyst (2020) → Consultant (2022) → Senior Consultant (2025). She has delivered 14+ projects across enterprise SAP, GenAI, social impact, and college research, and is recognized as a SAP Solutions SME and AI Architect.`,
 
     skills_summary: `Core stats: SAP Solutions (95%), GenAI & LLMs (90%), Backend Systems (88%), Game & Creative (86%), Cloud & DevOps (85%), Frontend & UI (82%).\n\nSkill tree branches:\n• SAP & Enterprise — CPQ (5/5), CPI/S4 HANA (4/5), BTP/Commerce (4/5), AI Core (2/5), Salesforce (3/5)\n• AI & GenAI — LangChain/LangGraph (5/5), RAG/Bedrock (5/5), LLMs (4/5), Agentic AI/MCP (4/5), NLP/Voice (3/5), TensorFlow/Keras (3/5), Model Finetuning (4/5)\n• DSA & ML — DSA (4/5), Dynamic Programming (4/5), Genetic Algorithms (4/5), Knowledge Ontology (4/5), Cognitive Computing (3/5), ML Pipelines (4/5), Evolutionary Algorithms (3/5)\n• Fullstack — Python (5/5), IronPython (4/5), Next.js/React/TS (4/5), GraphQL/REST (4/5), FastAPI/.NET (4/5), PostgreSQL/Redis (4/5), TailwindCSS (3/5)\n• Cloud & DevOps — AWS Lambda/S3/EC2 (4/5), Microservices (4/5), Docker (3/5), CI/CD (3/5)\n• Game & Creative — Panda3D/PyOpenGL (5/5), 2D/3D Game Dev (5/5), Game Jams & Bug Bounty (4/5), Game Modding (4/5), AR/VR (3/5), IoT/HW Integration (3/5)`,
 
-    sap_detail: `Devyani is an SAP CPQ expert (95% proficiency, 5/5 skill) with 8 enterprise engagements:\n\n1. HPI (2024–2025) — Senior Developer — 1.5 years building multi-country pricing engine, ETO product profiling, .NET/REST microservice APIs\n2. IBMHW (2023–2024) — Developer — 1 year: 3D/AR product views, WatsonX automation, GraphQL microservices, ML proficiency scoring\n3. FARO (2022) — Developer — 6 months: approval rules, pricing engine, warranty management, dynamic discounting\n4. IBMSW (2021–2023) — Lead Developer — 2.5-year full quote-to-cash: CPI/S4/VCPS integration, CPQ+Commerce, WatsonX chatbot, approval automation\n5. Konica Minolta (2021–2022) — Developer — 9 months: ticketing, dashboards, product automation, S4/HANA + CPI + VCPS integration\n6. Rogers (2021) — Developer — 2 months: CSV product portfolio automation\n7. DTNA (2021) — Developer — 2 months: PriceFx ↔ CPQ integration\n8. Kelloggs (2020) — Developer — Salesforce Commerce storefront\n\nAlso proficient in SAP CPI (4/5), S4/HANA (4/5), BTP/Commerce (4/5), SAP AI Core (2/5), and Salesforce (3/5).`,
+    sap_detail: `Devyani is an SAP CPQ expert (95% proficiency, 5/5 skill) with 8 enterprise engagements:\n\n1. HPI (2024–2025) — Senior Developer — 1.5 years building multi-country pricing engine, ETO product profiling, .NET/REST microservice APIs\n2. IBMHW (2023–2024) — Fullstack Developer — 1 year: 3D/AR product views, WatsonX automation, GraphQL microservices, ML proficiency scoring\n3. FARO (2022) — Developer — 6 months: approval rules, pricing engine, warranty management, dynamic discounting\n4. IBMSW (2021–2023) — Lead Developer — 2.5-year full quote-to-cash: CPI/S4/VCPS integration, CPQ+Commerce, WatsonX chatbot, approval automation\n5. Konica Minolta (2021–2022) — Developer — 9 months: ticketing, dashboards, product automation, S4/HANA + CPI + VCPS integration\n6. Rogers (2021) — Developer — 2 months: CSV product portfolio automation\n7. DTNA (2021) — Developer — 2 months: PriceFx ↔ CPQ integration\n8. Kelloggs (2020) — Developer — Salesforce Commerce storefront\n\nAlso proficient in SAP CPI (4/5), S4/HANA (4/5), BTP/Commerce (4/5), SAP AI Core (2/5), and Salesforce (3/5).`,
 
-    genai_detail: `Devyani has led 3 major GenAI projects:\n\n1. PMI SMT (2026, ongoing) — Lead Fullstack Developer — Gemini-powered executive mentorship app with voice sensitivity and user profiling\n2. AI Advantage (2025–2026, ongoing) — AI Architect/Agent Developer — Contract data extraction with AWS Strand Agents, RAG/MCP, LangChain/LangGraph. Sold to Disney, ESPN, and BioMarin\n3. SANOFI (2025, complete) — Lead Developer — Full automation pipeline for client delivery (requirements → pre-prod → go-live), converted to Deloitte internal accelerator\n\nAI skill ratings: LangChain/LangGraph (5/5), RAG/AWS Bedrock (5/5), LLMs/GPT-4/Gemini/Watson (4/5), Agentic AI/MCP (4/5), Model Finetuning (4/5), NLP/Voice AI (3/5), TensorFlow/Keras (3/5).`,
+    genai_detail: `Devyani has led 3 major GenAI projects:\n\n1. PMI SMT (2026, ongoing) — Fullstack Developer — Gemini-powered executive mentorship app with voice sensitivity and user profiling\n2. AI Advantage (2025–2026, ongoing) — AI Architect & Agent Developer — Contract data extraction with AWS Strand Agents, RAG/MCP, LangChain/LangGraph. Sold to Disney, ESPN, BioMarin, and FedEx\n3. SANOFI (2025, complete) — Lead Developer — Full automation pipeline for client delivery (requirements → pre-prod → go-live), converted to Deloitte internal accelerator\n\nAI skill ratings: LangChain/LangGraph (5/5), RAG/AWS Bedrock (5/5), LLMs/GPT-4/Gemini/Watson (4/5), Agentic AI/MCP (4/5), Model Finetuning (4/5), NLP/Voice AI (3/5), TensorFlow/Keras (3/5).`,
 
     impact_detail: `Impact and social projects (5 total):\n\n1. AM&C Community Apps (2025–2026, ongoing) — Fullstack Developer — End-to-end dashboards, 2D games (Android/iOS), AR/VR apps for Gurgaon AM&C events\n2. Explainosphere (2024, complete) — Fullstack Developer — Universal curiosity learning platform built with FastAPI, Next.js, GPT-4, PostgreSQL, Redis\n3. AMAN Security Device (2023–2025, complete) — Creator & Lead Engineer — Crowd-scanning for concealed weapons with threat-level calculation, tested with BSF battalion 98, built in response to the 2023 Nuh Haryana attacks\n4. E-MedicalHELP (2023, complete) — Lead Developer & Data Analyst — Centralized emergency medical system with NLP voice processing, IoT device integrations, hospital alignment\n5. Navgyan Niyojan (2020–2026, ongoing) — Volunteer Developer — Education curriculum improvement initiative through NGO collaboration`,
 
@@ -40,11 +40,11 @@ const Chat = (() => {
 
     gaming: `Devyani has strong development experience in game development (Game & Creative stat: 86%):\n\nSkill ratings:\n• Panda3D / PyOpenGL — 5/5 (MAX)\n• 2D/3D Game Development — 5/5 (MAX)\n• Game Jams & Bug Bounty Hunting — 4/5\n• Game Modding — 4/5\n• AR/VR Dev — 3/5\n• IoT / HW Integration — 3/5\n\nHighlights: Won game jams, raised COVID housing funds through online gaming, certified by Gaming Monk, and modded high-spec games for low-end systems at OceanOfGames. Built AR/VR apps for AM&C community events.`,
 
-    education_detail: `Devyani holds a BTech in Computer Science with specialisation in Cognitive Computing. Her college projects demonstrate strong CS fundamentals:\n\n1. MCOACH — Knowledge ontology system using OwlReady2/Keras for adaptive learning, studying Knowledge Representation and Cognitive Computation\n2. CUBE DEALT — Rubik's Cube optimizer using TensorFlow and evolutionary algorithms\n3. CRASH SAVERS — IoT + holographic road safety system, associated with IRSC`,
+    education_detail: `Devyani's education:\n\n🎓 Master of Science — Applications of Mathematics\n   Chennai Mathematical Institute (CMI) — Ongoing (Distance Learning Programme)\n   Research Focus: Rubik's Cube Optimization using Evolutionary Algorithms\n\n🎓 Bachelor of Technology — Computer Science (Specialization: Cognitive Computing)\n   IIIT Delhi (IIITD)\n   Thesis Project: MCOACH (Knowledge Ontology + Keras)\n\nHer college projects demonstrate strong CS fundamentals across knowledge representation, optimization algorithms, and IoT systems.`,
 
     aman: `AMAN Security Device (2023–2025) — Creator & Lead Engineer\n\nA crowd-scanning system for concealed weapons with threat-level calculation. Built in response to the 2023 Nuh Haryana attacks. Tested and launched with BSF battalion 98 support, who arranged real-time and fictional threat simulations.\n\nTech: Computer Vision, IoT, Security.\nMilestones: Research & Motivation → Hardware + CV Build → Threat-Level Algorithm → BSF Field Testing.`,
 
-    ibm: `Devyani worked on two major IBM projects at Deloitte:\n\n1. IBMSW (2021–2023) — Lead Developer — 2.5-year full quote-to-cash engagement: CPI/S4 HANA integration, CPQ+Commerce with VCPS, WatsonX AI chatbot for guided selling, multi-level approval automation, GraphQL APIs. Covered 5 milestones from discovery to go-live with 3-month hypercare.\n\n2. IBMHW (2023–2024) — Developer — 1 year: 3D/AR product views, WatsonX configuration automation, GraphQL microservices for cross-system aggregation, ML proficiency scoring using deterministic mathematical functions for hardware slotting.`,
+    ibm: `Devyani worked on two major IBM projects at Deloitte:\n\n1. IBMSW (2021–2023) — Lead Developer — 2.5-year full quote-to-cash engagement: CPI/S4 HANA integration, CPQ+Commerce with VCPS, WatsonX AI chatbot for guided selling, multi-level approval automation, GraphQL APIs. Covered 5 milestones from discovery to go-live with 3-month hypercare.\n\n2. IBMHW (2023–2024) — Fullstack Developer — 1 year: 3D/AR product views, WatsonX configuration automation, GraphQL microservices for cross-system aggregation, ML proficiency scoring using deterministic mathematical functions for hardware slotting.`,
 
     dsa_ml: `DSA & ML skill branch:\n• Data Structures & Algorithms — 4/5\n• Dynamic Programming — 4/5\n• Genetic Algorithms — 4/5\n• Knowledge Ontology — 4/5\n• Cognitive Computing — 3/5\n• ML Pipelines — 4/5\n• Evolutionary Algorithms — 3/5\n\nApplied in projects like MCOACH (ontology + Keras), CUBE DEALT (TensorFlow + evolutionary algorithms), IBMHW (ML proficiency scoring), and AI Advantage (RAG pipelines).`
   };
@@ -69,7 +69,7 @@ const Chat = (() => {
     { patterns: [/\bage\b|how old|born|birthday/i],
       reply: () => `Devyani is ${KB.age} years old (Level 26 in profileOS terms).` },
 
-    { patterns: [/educat|degree|btech|b\.?tech|qualification|studied|cognitive/i],
+    { patterns: [/educat|degree|btech|b\.?tech|qualification|studied|cognitive|msc|m\.?sc|master|CMI|chennai mathematical|IIIT|iiitd|universit|college/i],
       reply: () => KB.education_detail },
 
     { patterns: [/company|deloitte|where.*(work|employ)/i],
@@ -115,13 +115,13 @@ const Chat = (() => {
       reply: () => `Devyani has Model Finetuning at 4/5 proficiency in her AI & GenAI skill branch. She applies finetuning in enterprise GenAI contexts like AI Advantage (RAG optimization) and has experience with TensorFlow/Keras for model training in projects like CUBE DEALT and MCOACH.` },
 
     { patterns: [/project|portfolio|what.*(built|made|created|done|delivered)/i],
-      reply: () => `Devyani has delivered 14+ projects across 4 categories:\n\n📋 SAP Products (8): HPI, IBMHW, FARO, IBMSW, Konica Minolta, Rogers, DTNA, Kelloggs\n🤖 GenAI (3): PMI SMT, AI Advantage (Disney/ESPN/BioMarin), SANOFI\n💛 Impact (5): AM&C Community Apps, Explainosphere, AMAN Security Device, E-MedicalHELP, Navgyan Niyojan\n🎓 College (3): CUBE DEALT, MCOACH, CRASH SAVERS\n\nAsk about any specific project for details!` },
+      reply: () => `Devyani has delivered 14+ projects across 4 categories:\n\n📋 SAP Products (8): HPI, IBMHW, FARO, IBMSW, Konica Minolta, Rogers, DTNA, Kelloggs\n🤖 GenAI (3): PMI SMT, AI Advantage (Disney/ESPN/BioMarin/FedEx), SANOFI\n💛 Impact (5): AM&C Community Apps, Explainosphere, AMAN Security Device, E-MedicalHELP, Navgyan Niyojan\n🎓 College (3): CUBE DEALT, MCOACH, CRASH SAVERS\n\nAsk about any specific project for details!` },
 
     { patterns: [/sanofi/i],
       reply: () => `SANOFI (2025) — Lead Developer\n\nFull automation pipeline for client delivery (requirements → pre-prod → go-live). So effective it was converted to a Deloitte internal accelerator.\n\nMilestones: Pipeline Design → GenAI Integration → Pre-Prod & Go-Live → Deloitte Internal Adoption.\nTech: Automation, Pipeline, GenAI.` },
 
     { patterns: [/pmi|mentorship/i],
-      reply: () => `PMI SMT (2026, ongoing) — Lead Fullstack Developer\n\nGemini-powered executive mentorship app with voice sensitivity and user profiling.\n\nMilestones: User Profiling System → Gemini LLM Integration → Voice Sensitivity → Pilot Launch.\nTech: Gemini, Voice AI, Profiling.` },
+      reply: () => `PMI SMT (2026, ongoing) — Fullstack Developer\n\nGemini-powered executive mentorship app with voice sensitivity and user profiling.\n\nMilestones: User Profiling System → Gemini LLM Integration → Voice Sensitivity → Pilot Launch.\nTech: Gemini, Voice AI, Profiling.` },
 
     { patterns: [/hpi|hp inc/i],
       reply: () => `HPI (2024–2025) — Senior Developer\n\n1.5-year engagement building a multi-country pricing engine with ETO product profiling and .NET/REST microservice APIs for global markets across EMEA, APAC, and Americas.\n\nMilestones: Requirements & Scoping → ETO Profiling Engine → Microservice APIs → UAT & Deployment.\nTech: CPQ, Microservices, Pricing.` },
@@ -160,7 +160,7 @@ const Chat = (() => {
       reply: () => `MCOACH (2019–2020) — Fullstack Solo Developer\n\nKnowledge ontology system using OwlReady2 and Keras for adaptive learning. Studies how knowledge can be better perceived through Knowledge Representation and Cognitive Computation. Published as college thesis.\nTech: OwlReady2, Keras, Ontology.` },
 
     { patterns: [/crash saver|road safety|irsc|holograph/i],
-      reply: () => `CRASH SAVERS (2018) — Application Developer\n\nSmart road safety system combining IoT sensors with holographic projection for real-time driver alerts. Associated with IRSC (Indian Road Safety Campaign) and MORTH.\nTech: IoT, Holograms, Safety.` },
+      reply: () => `CRASH SAVERS (2018) — Application Developer\n\nSmart road safety system combining IoT sensors with holographic projection for real-time driver alerts. Associated with IRSC (Indian Road Safety Campaign).\nTech: IoT, Holograms, Safety.` },
 
     { patterns: [/python|ironpython|backend/i],
       reply: () => `Python is Devyani's primary language (5/5, MAX proficiency). IronPython is 4/5. Backend Systems stat: 88%.\n\nShe uses Python for: SAP CPQ scripting (IronPython), backend services (FastAPI), AI/ML (LangChain, TensorFlow), and game dev (Panda3D). Other backend tech: FastAPI/.NET (4/5), PostgreSQL/Redis (4/5), GraphQL/REST (4/5).` },
@@ -236,6 +236,12 @@ const Chat = (() => {
     'education': KB.education_detail,
     'btech': KB.education_detail,
     'cognitive': KB.education_detail,
+    'msc': KB.education_detail,
+    'cmi': KB.education_detail,
+    'iiitd': KB.education_detail,
+    'iiit': KB.education_detail,
+    'mathematics': KB.education_detail,
+    'masters': KB.education_detail,
     'experience': `${KB.experience}. ${KB.promotions}.`,
     'game': KB.gaming,
     'gaming': KB.gaming,

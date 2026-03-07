@@ -153,6 +153,16 @@ const App = (() => {
     history.pushState(null, '', BASE_PATH + '/' + profileKey);
     const p = PROFILES[profileKey];
 
+    /* Auto-download profile doc when opening general profile */
+    if (profileKey === 'general') {
+      const a = document.createElement('a');
+      a.href = BASE_PATH + '/DevyaniPKumar-profile.docx';
+      a.download = 'DevyaniPKumar-profile.docx';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
+
     document.getElementById('profile-selector').classList.add('hidden');
     const desktop = document.getElementById('desktop');
     desktop.classList.remove('hidden');
@@ -465,9 +475,9 @@ const App = (() => {
     if (!p.inventory) return '<p>Empty inventory.</p>';
     const counts = { legendary: 0, epic: 0, elite: 0 };
     p.inventory.forEach(i => { if (counts[i.rarity] !== undefined) counts[i.rarity]++; });
-    const invLabel = { legendary: 'Mythic', epic: 'Exotic', elite: 'Refined' };
+    const invLabel = { legendary: 'Legendary', epic: 'Exotic', elite: 'Refined' };
     return `<div class="section-title pixel-title"><i class="fas fa-boxes-stacked"></i> Tech Inventory <span class="inv-counter">${p.inventory.length} items</span></div>
-      <div class="inv-legend"><span class="inv-leg legendary"><i class="fas fa-gem"></i> ${counts.legendary} Mythic</span><span class="inv-leg epic"><i class="fas fa-star"></i> ${counts.epic} Exotic</span><span class="inv-leg elite"><i class="fas fa-circle"></i> ${counts.elite} Refined</span></div>
+      <div class="inv-legend"><span class="inv-leg legendary"><i class="fas fa-gem"></i> ${counts.legendary} Legendary</span><span class="inv-leg epic"><i class="fas fa-star"></i> ${counts.epic} Exotic</span><span class="inv-leg elite"><i class="fas fa-circle"></i> ${counts.elite} Refined</span></div>
       <div class="inv-grid">
         ${p.inventory.map(item => `
           <div class="inv-item ${item.rarity}" title="${esc(item.name)} (${invLabel[item.rarity] || item.rarity})">

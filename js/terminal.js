@@ -50,6 +50,7 @@ const Terminal = (() => {
         printLine('  projects    — Project summary');
         printLine('  stats       — Stat bars');
         printLine('  achievements— Achievement list');
+        printLine('  education   — Education background');
         printLine('  contact     — Contact info');
         printLine('  clear       — Clear terminal');
         printLine('  neofetch    — System info');
@@ -105,6 +106,20 @@ const Terminal = (() => {
           const lock = a.unlocked ? '🏆' : '🔒';
           printLine(`  ${lock} <span class="term-gold">${escHtml(a.title)}</span> — ${escHtml(a.desc)} [${a.rarity}]`);
         });
+      },
+      education: () => {
+        printLine('<span class="term-accent">Education</span>');
+        printLine('');
+        printLine('<span class="term-gold">MSc — Applications of Mathematics</span>');
+        printLine('  Chennai Mathematical Institute (CMI)');
+        printLine('  Status  : Ongoing (Distance Learning Programme)');
+        printLine('  Research: Rubik\'s Cube Optimization using Evolutionary Algorithms');
+        printLine('');
+        printLine('<span class="term-gold">BTech — Computer Science (Cognitive Computing)</span>');
+        printLine('  IIIT Delhi (IIITD)');
+        printLine('  Thesis  : MCOACH (Knowledge Ontology + Keras)');
+        printLine('           CUBE DEALT (Evolutionary Algorithms + TensorFlow)');
+        printLine('           CRASH SAVERS (IoT + Holographic Projection)');
       },
       contact: () => {
         printLine('<span class="term-accent">Contact</span>');
