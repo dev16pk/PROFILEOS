@@ -156,8 +156,8 @@ const App = (() => {
     /* Auto-download profile doc when opening general profile */
     if (profileKey === 'general') {
       const a = document.createElement('a');
-      a.href = BASE_PATH + '/DevyaniPKumar-profile.docx';
-      a.download = 'DevyaniPKumar-profile.docx';
+      a.href = BASE_PATH + '/DevyaniPKumar-profile.pdf';
+      a.download = 'DevyaniPKumar-profile.pdf';
       document.body.appendChild(a);
       a.click();
       a.remove();

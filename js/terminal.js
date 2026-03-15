@@ -80,7 +80,7 @@ const Terminal = (() => {
         printLine('  Sept 2020 — Joined Deloitte as Analyst');
         printLine('  2022 — Promoted to Developer');
         printLine('  2024 — Promoted to Senior Developer');
-        printLine('  2025 — 5.5 years, 14+ projects delivered');
+        printLine('  2025 — 5.7 years, 14+ projects delivered');
         printLine('  Total promotions: 2');
       },
       projects: () => {

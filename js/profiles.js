@@ -20,7 +20,7 @@ const PROFILES = {
       summary: 'Fullstack engineer and AI architect specializing in enterprise SAP CPQ, generative AI (RAG, agentic workflows, LLMs), and cloud-native systems on AWS. Experienced in building end-to-end solutions across pricing engines, contract intelligence, and conversational AI. Open-source contributor with a background in game development and community-impact projects.',
       attributes: [
         { key: 'LVL', val: '26', desc: 'Level' },
-        { key: 'EXP', val: '5.5yr', desc: 'Experience' },
+        { key: 'EXP', val: '5.7yr', desc: 'Experience' },
         { key: 'RANK', val: 'Sr Dev', desc: 'Deloitte' },
         { key: 'PROMO', val: '2', desc: 'Promotions' },
         { key: 'PROJ', val: '14+', desc: 'Projects' },

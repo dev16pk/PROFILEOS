@@ -10,7 +10,7 @@ const Chat = (() => {
     name: 'Devyani P. Kumar',
     age: '26',
     role: 'Senior Developer at Deloitte',
-    experience: '5.5 years at Deloitte (joined Sept 2020)',
+    experience: '5.7 years at Deloitte (joined Sept 2020)',
     promotions: 'Promoted twice: Analyst (Sept 2020) → Consultant/Developer (2022) → Senior Consultant/Senior Developer (2025)',
     education: 'BTech in Computer Science (Specialization: Cognitive Computing) from IIIT Delhi, and is pursuing an MSc in Applications of Mathematics from Chennai Mathematical Institute (CMI)',
     location: 'India',
@@ -18,7 +18,7 @@ const Chat = (() => {
     phone: '+(91) 7014405433',
     email: 'dev16pk@gmail.com',
 
-    bio: `Devyani P. Kumar is a 26-year-old Senior Developer at Deloitte with 5.5 years of experience. She holds a BTech in Computer Science (Specialization: Cognitive Computing) from IIIT Delhi and is currently pursuing an MSc in Applications of Mathematics from Chennai Mathematical Institute (CMI), with research in Rubik's Cube Optimization using Evolutionary Algorithms. She specializes in SAP CPQ solutions, GenAI/LLM architectures, and fullstack development. She has been promoted twice — Analyst (2020) → Consultant (2022) → Senior Consultant (2025). She has delivered 14+ projects across enterprise SAP, GenAI, social impact, and college research, and is recognized as a SAP Solutions SME and AI Architect.`,
+    bio: `Devyani P. Kumar is a 26-year-old Senior Developer at Deloitte with 5.7 years of experience. She holds a BTech in Computer Science (Specialization: Cognitive Computing) from IIIT Delhi and is currently pursuing an MSc in Applications of Mathematics from Chennai Mathematical Institute (CMI), with research in Rubik's Cube Optimization using Evolutionary Algorithms. She specializes in SAP CPQ solutions, GenAI/LLM architectures, and fullstack development. She has been promoted twice — Analyst (2020) → Consultant (2022) → Senior Consultant (2025). She has delivered 14+ projects across enterprise SAP, GenAI, social impact, and college research, and is recognized as a SAP Solutions SME and AI Architect.`,
 
     skills_summary: `Core stats: SAP Solutions (95%), GenAI & LLMs (90%), Backend Systems (88%), Game & Creative (86%), Cloud & DevOps (85%), Frontend & UI (82%).\n\nSkill tree branches:\n• SAP & Enterprise — CPQ (5/5), CPI/S4 HANA (4/5), BTP/Commerce (4/5), AI Core (2/5), Salesforce (3/5)\n• AI & GenAI — LangChain/LangGraph (5/5), RAG/Bedrock (5/5), LLMs (4/5), Agentic AI/MCP (4/5), NLP/Voice (3/5), TensorFlow/Keras (3/5), Model Finetuning (4/5)\n• DSA & ML — DSA (4/5), Dynamic Programming (4/5), Genetic Algorithms (4/5), Knowledge Ontology (4/5), Cognitive Computing (3/5), ML Pipelines (4/5), Evolutionary Algorithms (3/5)\n• Fullstack — Python (5/5), IronPython (4/5), Next.js/React/TS (4/5), GraphQL/REST (4/5), FastAPI/.NET (4/5), PostgreSQL/Redis (4/5), TailwindCSS (3/5)\n• Cloud & DevOps — AWS Lambda/S3/EC2 (4/5), Microservices (4/5), Docker (3/5), CI/CD (3/5)\n• Game & Creative — Panda3D/PyOpenGL (5/5), 2D/3D Game Dev (5/5), Game Jams & Bug Bounty (4/5), Game Modding (4/5), AR/VR (3/5), IoT/HW Integration (3/5)`,
 
@@ -228,7 +228,7 @@ const Chat = (() => {
     'project': `Devyani has delivered 14+ projects across SAP Products (8), GenAI (3), Impact (5), and College (3).`,
     'python': `Python is Devyani's primary language (5/5, MAX). Used for SAP CPQ scripting (IronPython), backend (FastAPI), AI/ML (LangChain, TensorFlow), and game dev (Panda3D).`,
     'achievement': KB.achievements_detail,
-    'deloitte': `Devyani is a Senior Developer at Deloitte with 5.5 years of experience. ${KB.promotions}. Recognized as SAP Solutions SME and AI Architect.`,
+    'deloitte': `Devyani is a Senior Developer at Deloitte with 5.7 years of experience. ${KB.promotions}. Recognized as SAP Solutions SME and AI Architect.`,
     'age': `Devyani is ${KB.age} years old (Level ${KB.age}).`,
     'contact': KB.contact,
     'email': KB.contact,
