@@ -127,6 +127,7 @@ const FlappyNeon = (() => {
     lastT = t;
     frameCount++;
     update(dt);
+    if (state !== 'play') return;
     draw();
     loop = requestAnimationFrame(tick);
   }

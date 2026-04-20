@@ -137,6 +137,7 @@ const BrickBreaker = (() => {
     const dt = Math.min(t - lastT, 50);
     lastT = t;
     update(dt);
+    if (state !== 'play') return; // game over was triggered in update — don't overwrite it
     draw();
     loop = requestAnimationFrame(tick);
   }

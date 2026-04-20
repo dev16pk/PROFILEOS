@@ -153,7 +153,7 @@ general,teaser,
 general,about_name,Devyani P. Kumar
 general,about_title,Senior Developer
 general,about_summary,"Fullstack engineer and AI architect specializing in..."
-general,about_attributes,"[{""key"":""LVL"",""val"":""26"",""desc"":""Level""},{""key"":""EXP"",""val"":""5.7yr"",""desc"":""Experience""},{""key"":""RANK"",""val"":""Sr Dev"",""desc"":""Deloitte""},{""key"":""PROMO"",""val"":""2"",""desc"":""Promotions""},{""key"":""PROJ"",""val"":""14+"",""desc"":""Projects""},{""key"":""CLASS"",""val"":""Arch"",""desc"":""Architect""}]"
+general,about_attributes,"[{""key"":""LVL"",""val"":""26"",""desc"":""Level""},{""key"":""EXP"",""val"":""5.8yr"",""desc"":""Experience""},{""key"":""RANK"",""val"":""Sr Dev"",""desc"":""Deloitte""},{""key"":""PROMO"",""val"":""2"",""desc"":""Promotions""},{""key"":""PROJ"",""val"":""14+"",""desc"":""Projects""},{""key"":""CLASS"",""val"":""Arch"",""desc"":""Architect""}]"
 gaming,id,gaming
 gaming,name,Gaming Profile
 gaming,icon,fa-gamepad
