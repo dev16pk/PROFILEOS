@@ -10,31 +10,37 @@ const PROFILES = {
     icon: 'fa-briefcase',
     badge: 'Live',
     badgeClass: 'live',
-    tagline: 'Fullstack Developer · AI Architect · SAP Solutions SME',
+    tagline: 'Senior Developer & Solutions Architect · AI Architect · SAP Solutions SME',
     wallpaper: 'linear-gradient(135deg,#0a0e17 0%,#111827 50%,#0a0e17 100%)',
 
     /* —— About —— */
     about: {
       name: 'Devyani P. Kumar',
-      title: 'Senior Developer',
-      summary: 'Fullstack engineer and AI architect specializing in enterprise SAP CPQ, generative AI (RAG, agentic workflows, LLMs), and cloud-native systems on AWS. Experienced in building end-to-end solutions across pricing engines, contract intelligence, and conversational AI. Open-source contributor with a background in game development and community-impact projects.',
+      title: 'Senior Developer & Solutions Architect',      summaryIntro: 'Fullstack engineer and AI architect specializing in enterprise SAP CPQ, generative AI, and cloud-native systems on AWS.',
+      summaryHighlights: [
+        { icon: 'fa-microchip', label: 'SAP CX C2C Architect', text: 'One of the architects on the Campaign-to-Cash initiative — building AI agents with SAP Core AI & SAP Joule' },
+        { icon: 'fa-vr-cardboard', label: 'AR Pipeline Co-Founder', text: 'Centralized AR asset pipeline & marketplace for battle arenas, robot wars, and hardware blueprint generation' },
+        { icon: 'fa-brain', label: 'GenAI & RAG', text: 'Agentic workflows, LLM orchestration, and RAG pipelines for Fortune 500 clients' },
+        { icon: 'fa-gears', label: 'Enterprise Solutions', text: 'End-to-end pricing engines, contract intelligence, quote-to-cash, and conversational AI' },
+        { icon: 'fa-gamepad', label: 'Creative & OSS', text: 'Game development, open-source contributions, and community-impact projects' }
+      ],      summary: 'Fullstack engineer and AI architect specializing in enterprise SAP CPQ, generative AI (RAG, agentic workflows, LLMs), and cloud-native systems on AWS. One of the architects on the SAP CX Campaign-to-Cash (C2C) initiative, building agents and skills with SAP Core AI and SAP Joule for CPQ production quote replication, user story development, and integration. Co-founded AR Pipeline — a centralized AR asset pipeline and marketplace for battle arenas, robot wars, and hardware blueprint generation. Experienced in building end-to-end solutions across pricing engines, contract intelligence, and conversational AI. Open-source contributor with a background in game development and community-impact projects.',
       attributes: [
         { key: 'LVL', val: '26', desc: 'Level' },
-        { key: 'EXP', val: '5.7yr', desc: 'Experience' },
+        { key: 'EXP', val: '5.8yr', desc: 'Experience' },
         { key: 'RANK', val: 'Sr Dev', desc: 'Deloitte' },
         { key: 'PROMO', val: '2', desc: 'Promotions' },
-        { key: 'PROJ', val: '14+', desc: 'Projects' },
+        { key: 'PROJ', val: '16+', desc: 'Projects' },
         { key: 'CLASS', val: 'Arch', desc: 'Architect' }
       ]
     },
 
     /* —— Stats —— */
     stats: [
-      { name: 'SAP Solutions', value: 95, color: 'green', icon: 'fa-gears', projects: ['IBMSW', 'HPI', 'IBMHW', 'KONIKA MINOLTA', 'FARO', 'ROGERS', 'DTNA', 'Kelloggs'] },
-      { name: 'GenAI & LLMs', value: 90, color: 'teal', icon: 'fa-brain', projects: ['AI ADVANTAGE', 'SANOFI', 'PMI SMT', 'Explainosphere'] },
-      { name: 'Backend Systems', value: 88, color: 'blue', icon: 'devicon-python-plain', projects: ['AI ADVANTAGE', 'SANOFI', 'IBMSW', 'HPI', 'E-MedicalHELP'] },
-      { name: 'Game & Creative', value: 86, color: 'violet', icon: 'fa-gamepad', projects: ['AM&C Community Apps', 'CUBE DEALT', 'IBMHW 3D/AR'] },
-      { name: 'Cloud & DevOps', value: 85, color: 'mauve', icon: 'devicon-amazonwebservices-plain-wordmark', projects: ['AI ADVANTAGE', 'SANOFI', 'HPI', 'Explainosphere'] },
+      { name: 'SAP Solutions', value: 95, color: 'green', icon: 'fa-gears', projects: ['SAP CX C2C Initiative', 'IBMSW', 'HPI', 'IBMHW', 'KONIKA MINOLTA', 'FARO', 'ROGERS', 'DTNA', 'Kelloggs'] },
+      { name: 'GenAI & LLMs', value: 90, color: 'teal', icon: 'fa-brain', projects: ['SYMETRA 10x', 'AI ADVANTAGE', 'SANOFI', 'PMI SMT', 'Explainosphere'] },
+      { name: 'Backend Systems', value: 88, color: 'blue', icon: 'devicon-python-plain', projects: ['SYMETRA 10x', 'AI ADVANTAGE', 'SANOFI', 'IBMSW', 'HPI', 'E-MedicalHELP'] },
+      { name: 'Game & Creative', value: 86, color: 'violet', icon: 'fa-gamepad', projects: ['AR PIPELINE', 'AM&C Community Apps', 'CUBE DEALT', 'IBMHW 3D/AR'] },
+      { name: 'Cloud & DevOps', value: 85, color: 'mauve', icon: 'devicon-amazonwebservices-plain-wordmark', projects: ['SYMETRA 10x', 'AI ADVANTAGE', 'SANOFI', 'HPI', 'Explainosphere'] },
       { name: 'Frontend & UI', value: 82, color: 'pink', icon: 'devicon-react-original', projects: ['Explainosphere', 'IBMSW Commerce', 'Kelloggs', 'PMI SMT'] }
     ],
 
@@ -48,7 +54,8 @@ const PROFILES = {
           { name: 'SAP CPQ', pips: 5, icon: 'fa-gears' },
           { name: 'SAP CPI / S4 HANA', pips: 4, icon: 'fa-right-left' },
           { name: 'SAP BTP / Commerce', pips: 4, icon: 'fa-cubes' },
-          { name: 'SAP AI Core', pips: 2, icon: 'fa-microchip' },
+          { name: 'SAP AI Core', pips: 4, icon: 'fa-microchip' },
+          { name: 'SAP Joule', pips: 4, icon: 'fa-wand-magic-sparkles' },
           { name: 'Salesforce', pips: 3, icon: 'devicon-salesforce-plain' }
         ]
       },
@@ -114,7 +121,7 @@ const PROFILES = {
           { name: '2D/3D Game Development', pips: 5, icon: 'fa-dice-d20' },
           { name: 'Game Jams and Bug Bounty Hunting', pips: 4, icon: 'fa-trophy' },
           { name: 'Game Modding', pips: 4, icon: 'fa-wrench' },
-          { name: 'AR / VR Dev', pips: 3, icon: 'fa-vr-cardboard' },
+          { name: 'AR / VR Dev', pips: 4, icon: 'fa-vr-cardboard' },
           { name: 'IoT / HW Integration', pips: 3, icon: 'devicon-arduino-plain' }
         ]
       }
@@ -196,7 +203,16 @@ const PROFILES = {
         }
       ],
       'GenAI': [
-        { title: 'PMI SMT', date: '2026', status: 'ongoing', icon: 'fa-gem', logo: 'assets/logos/pmi.png', desc: 'Gemini-powered executive mentorship app with voice sensitivity and user profiling.', tags: ['Gemini','Voice AI','Profiling'], bar: 55, barColor: 'blue',
+        { title: 'SYMETRA 10x', date: '2026', status: 'ongoing', icon: 'fa-file-shield', logo: 'assets/logos/deloitte.png', desc: 'Agentic AI framework for financial document analysis — PII redaction, validation, suitability checks, risk evaluation, and automated report generation.', tags: ['Agentic AI','Finance','PII Redaction','Risk Evaluation','Document Analysis'], bar: 30, barColor: 'blue',
+          role: 'Senior Architect',
+          timeline: [
+            { phase: 'Architecture & Framework Design', detail: 'Designing agentic framework for multi-stage financial document analysis pipeline' },
+            { phase: 'PII Redaction & Validation', detail: 'Building automated PII detection and redaction agents with downstream validation checks' },
+            { phase: 'Suitability & Risk Evaluation', detail: 'Developing AI agents for suitability checks and risk scoring of financial applications' },
+            { phase: 'Report Generation & Decision', detail: 'Generating issue reports with accept/reject recommendations for human-in-the-loop review' }
+          ]
+        },
+        { title: 'PMI SMT', date: '2026', status: 'done', icon: 'fa-gem', logo: 'assets/logos/pmi.png', desc: 'Gemini-powered executive mentorship app with voice sensitivity and user profiling.', tags: ['Gemini','Voice AI','Profiling'], bar: 100, barColor: 'green',
           role: 'Fullstack Developer',
           timeline: [
             { phase: 'User Profiling System', detail: 'Built executive profiling engine capturing leadership style and growth areas' },
@@ -205,7 +221,7 @@ const PROFILES = {
             { phase: 'Pilot Launch', detail: 'Deployed pilot with PMI executive cohort and gathered feedback for iteration' }
           ]
         },
-        { title: 'AI ADVANTAGE', date: '2025 – 2026', status: 'ongoing', icon: 'fa-wand-magic-sparkles', logo: 'assets/logos/deloitte.png', desc: 'Contract data extraction with AWS Strand Agents, RAG/MCP, LangChain/LangGraph. Sold to Disney, ESPN, BioMarin and FedEx', tags: ['AWS','RAG','MCP','LangChain','LangGraph', 'Fintech'], bar: 85, barColor: 'blue',
+        { title: 'AI ADVANTAGE', date: '2025 – 2026', status: 'done', icon: 'fa-wand-magic-sparkles', logo: 'assets/logos/deloitte.png', desc: 'Contract data extraction with AWS Strand Agents, RAG/MCP, LangChain/LangGraph. Sold to Disney, ESPN, BioMarin and FedEx', tags: ['AWS','RAG','MCP','LangChain','LangGraph', 'Fintech'], bar: 100, barColor: 'green',
           role: 'AI Architect & Agent Developer',
           timeline: [
             { phase: 'Architecture & POC', detail: 'Designed agentic RAG architecture using AWS Strand Agents and LangChain/LangGraph' },
@@ -260,6 +276,15 @@ const PROFILES = {
             { phase: 'Deployment', detail: 'Deployed for emergency response demonstration and testing' }
           ]
         },
+        { title: 'AR PIPELINE', date: '2026', status: 'ongoing', icon: 'fa-vr-cardboard', logo: 'assets/logos/ar-pipeline.png', desc: 'Co-founded centralized AR asset pipeline and marketplace — battle arenas, robot wars, hardware blueprint generation', tags: ['AR/VR','3D Assets','Marketplace','Robotics','Blueprint Generation'], bar: 25, barColor: 'blue',
+          role: 'Co-Founder & Lead Developer',
+          timeline: [
+            { phase: 'R&D & Concept', detail: 'Collaborated with mechatronics engineers to transform physical robot battles into virtual AR experiences' },
+            { phase: 'AR Battle Arenas', detail: 'Built AR battle arenas with robots and weaponry, launched as an event at college fest via juniors — successful debut with strong polling response' },
+            { phase: 'Asset Pipeline & Marketplace', detail: 'Building centralized AR asset pipeline — like Pinterest for AR frameworks, with easy rendering and marketplace for 3D assets (home decor, accessories, robotics)' },
+            { phase: 'Hardware Blueprint Generation', detail: 'Extending pipeline to generate actual hardware blueprints from AR models for robots, weapons, and war equipment' }
+          ]
+        },
         { title: 'Navgyan Niyojan', date: '2020 – 2026', status: 'ongoing', icon: 'fa-graduation-cap', logo: 'assets/logos/navgyan.png', desc: 'Education curriculum improvement initiative through NGO collaboration.', tags: ['Education','NGO'], bar: 60, barColor: 'gold',
           role: 'Volunteer Developer',
           timeline: [
@@ -304,6 +329,7 @@ const PROFILES = {
       { title: 'TCS DISQ Finalist', desc: '🏅 Ranked 17th nationally in TCS Digital Callforsolutions 2022 — outlasted thousands of competitors', icon: 'fa-trophy', rarity: 'epic', unlocked: true },
       { title: 'Security Guardian', desc: '🛡️ Built & field-tested AMAN threat-detection system with BSF battalion 98 — real crowds, real simulations, real impact', icon: 'fa-shield-alt', rarity: 'epic', unlocked: true },
       { title: 'AI Innovator', desc: '🧠 Architected production GenAI systems — RAG pipelines, agentic workflows & LLMs humming at enterprise scale', icon: 'fa-brain', rarity: 'epic', unlocked: true },
+      { title: 'SAP CX C2C Architect', desc: '⚙️ One of the architects on Deloitte\'s SAP CX Campaign-to-Cash initiative — building AI agents & skills with SAP Core AI and SAP Joule across 2 completed phases', icon: 'fa-microchip', rarity: 'epic', unlocked: true },
       { title: 'Fullstack Engineer', desc: '⚡ Mastered the full stack — frontend, backend, cloud & data layers all in the toolkit', icon: 'fa-layer-group', rarity: 'elite', unlocked: true },
       { title: 'Game Dev Veteran', desc: '🎮 Won game jams, raised COVID housing funds through online gaming, certified by Gaming Monk & modded high-spec games for low-end systems at OceanOfGames', icon: 'fa-gamepad', rarity: 'elite', unlocked: true },
       { title: 'Community Champion', desc: '🤝 Built AM&C community event apps, led SAP CX training sessions & helped onboard new talent into the firm', icon: 'fa-users', rarity: 'elite', unlocked: true },

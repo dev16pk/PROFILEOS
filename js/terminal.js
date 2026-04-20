@@ -79,8 +79,8 @@ const Terminal = (() => {
         printLine('<span class="term-accent">Career Timeline</span>');
         printLine('  Sept 2020 — Joined Deloitte as Analyst');
         printLine('  2022 — Promoted to Developer');
-        printLine('  2024 — Promoted to Senior Developer');
-        printLine('  2025 — 5.7 years, 14+ projects delivered');
+        printLine('  2024 — Promoted to Senior Developer & Solutions Architect');
+        printLine('  2025 — 5.8 years, 16+ projects delivered');
         printLine('  Total promotions: 2');
       },
       projects: () => {

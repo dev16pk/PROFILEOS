@@ -185,12 +185,25 @@ const App = (() => {
     const attrs = (a.attributes || []).map(at => `
       <div class="attr-box"><span class="attr-key">${esc(at.key)}</span><span class="attr-val">${esc(at.val)}</span><span class="attr-desc">${esc(at.desc)}</span></div>
     `).join('');
-    const statCards = (p.stats || []).map(s => `
+    const statCards = (p.stats || []).map(s => {
+      const tipProjs = (s.projects || []).map(pr => `<span class="stat-tip-proj">${esc(pr)}</span>`).join('');
+      const tip = tipProjs ? `<div class="stat-tooltip"><span class="stat-tip-label">Projects</span><div class="stat-tip-list">${tipProjs}</div></div>` : '';
+      return `
       <div class="stat-card stat-card--${s.color}">
         <div class="stat-icon">${iconHtml(s.icon)}</div>
         <div class="stat-name">${esc(s.name)}</div>
         <div class="stat-bar"><div class="stat-fill ${s.color}" data-val="${s.value}"></div></div>
         <div class="stat-value">${s.value}%</div>
+        ${tip}
+      </div>`;
+    }).join('');
+    const highlightsHtml = (a.summaryHighlights || []).map(h => `
+      <div class="about-highlight">
+        <div class="highlight-icon"><i class="fas ${h.icon}"></i></div>
+        <div class="highlight-content">
+          <span class="highlight-label">${esc(h.label)}</span>
+          <span class="highlight-text">${esc(h.text)}</span>
+        </div>
       </div>`).join('');
     panel.innerHTML = `
       <div class="about-hero">
@@ -199,9 +212,10 @@ const App = (() => {
         <div class="about-info">
           <h2 class="about-name">${esc(a.name)}</h2>
           <p class="about-title">${esc(a.title)}</p>
-          <p class="about-summary">${esc(a.summary)}</p>
+          <p class="about-summary">${esc(a.summaryIntro || a.summary)}</p>
         </div>
       </div>
+      ${highlightsHtml ? `<div class="about-highlights">${highlightsHtml}</div>` : ''}
       <div class="attr-grid">${attrs}</div>
       <div class="stats-grid" style="margin-top:1rem">${statCards}</div>`;
     setTimeout(() => {
