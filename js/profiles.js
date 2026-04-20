@@ -370,7 +370,7 @@ const PROFILES = {
       { id: 'achievements', label: 'Achievements', icon: 'fa-trophy', color: '#f59e0b' },
       { id: 'inventory', label: 'Inventory', icon: 'fa-boxes-stacked', color: '#8b5cf6' },
       { id: 'chat', label: 'Ask Me', icon: 'fa-comments', color: '#ec4899' },
-      { id: 'skytiles', label: 'Sky Tiles', icon: 'fa-jedi', img: 'assets/skytiles.png', color: 'skytiles-icon' }
+      { id: 'gamestore', label: 'Game Store', icon: 'fa-gamepad', img: 'assets/skytiles.png', color: 'gamestore-icon' }
     ],
 
     cardDeloitte: true

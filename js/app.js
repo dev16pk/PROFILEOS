@@ -324,6 +324,7 @@ const App = (() => {
     const isTerminal = id === 'terminal';
     const isChat = id === 'chat';
     const isGame = id === 'skytiles';
+    const isGameStore = id === 'gamestore';
     win.innerHTML = `
       <div class="window-header ${isTerminal ? 'terminal-header' : ''}">
         <div class="window-title"><i class="fas ${cfg.icon}"></i> ${esc(cfg.title)}</div>
@@ -333,7 +334,7 @@ const App = (() => {
           <button class="win-btn close" title="Close"><i class="fas fa-xmark"></i></button>
         </div>
       </div>
-      <div class="window-body ${isTerminal ? 'terminal-body' : ''} ${isChat ? 'chat-body' : ''} ${isGame ? 'st-body' : ''}">${cfg.body}</div>`;
+      <div class="window-body ${isTerminal ? 'terminal-body' : ''} ${isChat ? 'chat-body' : ''} ${isGame ? 'st-body' : ''} ${isGameStore ? 'gs-body' : ''}">${cfg.body}</div>`;
 
     document.getElementById('windows-container').appendChild(win);
     bringToFront(win);
@@ -343,7 +344,9 @@ const App = (() => {
     if (isTerminal) Terminal.init(win.querySelector('.window-body'));
     if (isChat) Chat.init(win.querySelector('.window-body'));
     if (isGame) SkyTiles.init(win.querySelector('.st-container'));
+    if (isGameStore) GameStore.init(win.querySelector('.gs-container'));
     animateStatBars(win);
+    if (id === 'quests') setTimeout(() => animateQuestBars(win), 150);
   }
 
   function windowConfig(id, p) {
@@ -356,7 +359,8 @@ const App = (() => {
       inventory: { title: 'Inventory', icon: 'fa-boxes-stacked', w: 520, h: 420, body: renderInventory(p) },
       chat: { title: 'Ask Me Anything', icon: 'fa-comments', w: 440, h: 480, body: renderChat() },
       terminal: { title: 'Terminal', icon: 'fa-terminal', w: 560, h: 380, body: renderTerminal() },
-      skytiles: { title: 'Sky Tiles', icon: 'fa-jedi', w: 420, h: 520, body: '<div class="st-container"></div>' }
+      skytiles: { title: 'Sky Tiles', icon: 'fa-jedi', w: 420, h: 520, body: '<div class="st-container"></div>' },
+      gamestore: { title: 'Game Store', icon: 'fa-gamepad', w: 620, h: 540, body: '<div class="gs-container"></div>' }
     };
     return cfgs[id] || null;
   }
@@ -439,7 +443,7 @@ const App = (() => {
                 <div class="quest-header"><h4>${esc(q.title)}</h4>${q.date ? `<span class="quest-date"><i class="fas fa-calendar-alt"></i> ${esc(q.date)}</span>` : ''}${q.role ? `<span class="quest-role"><i class="fas fa-user-tag"></i> ${esc(q.role)}</span>` : ''}<span class="quest-status ${statusClass}">${statusLabel}</span></div>
                 <p>${esc(q.desc)}</p>
                 <div class="quest-tags">${(q.tags || []).map(tg => `<span class="tag">${esc(tg)}</span>`).join('')}</div>
-                <div class="quest-bar-wrap"><div class="quest-bar"><div class="quest-bar-fill ${q.barColor}" style="width:${q.bar}%"></div></div><span class="quest-bar-pct">${q.bar}%</span></div>
+                <div class="quest-bar-wrap"><div class="quest-bar"><div class="quest-bar-fill ${q.barColor}" data-val="${q.bar}"></div></div><span class="quest-bar-pct">${q.bar}%</span></div>
                 ${hasTimeline ? `
                 <button class="quest-timeline-toggle" onclick="this.closest('.quest-card').classList.toggle('timeline-open');this.querySelector('.toggle-icon').classList.toggle('rotated')">
                   <i class="fas fa-route"></i> Milestones <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
@@ -527,7 +531,17 @@ const App = (() => {
     e.target.classList.add('active');
     const tab = e.target.dataset.tab;
     parent.querySelectorAll('.quest-list').forEach(l => l.classList.toggle('hidden', l.dataset.tabBody !== tab));
+    // Reset and re-animate bars for newly visible tab
+    const visibleList = parent.querySelector('.quest-list[data-tab-body="' + tab + '"]');
+    if (visibleList) {
+      visibleList.querySelectorAll('.quest-bar-fill[data-val]').forEach(bar => { bar.style.width = '0%'; });
+      setTimeout(() => { visibleList.querySelectorAll('.quest-bar-fill[data-val]').forEach(bar => { bar.style.width = bar.dataset.val + '%'; }); }, 50);
+    }
   });
+
+  function animateQuestBars(container) {
+    container.querySelectorAll('.quest-bar-fill[data-val]').forEach(bar => { bar.style.width = bar.dataset.val + '%'; });
+  }
 
   /* ── Window controls ── */
   function bindWindowControls(win, id) {
