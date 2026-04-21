@@ -111,12 +111,10 @@ const Terminal = (() => {
         printLine('<span class="term-accent">Education</span>');
         printLine('');
         printLine('<span class="term-gold">MSc — Applications of Mathematics</span>');
-        printLine('  Chennai Mathematical Institute (CMI)');
         printLine('  Status  : Ongoing (Distance Learning Programme)');
         printLine('  Research: Rubik\'s Cube Optimization using Evolutionary Algorithms');
         printLine('');
         printLine('<span class="term-gold">BTech — Computer Science (Cognitive Computing)</span>');
-        printLine('  IIIT Delhi (IIITD)');
         printLine('  Thesis  : MCOACH (Knowledge Ontology + Keras)');
         printLine('           CUBE DEALT (Evolutionary Algorithms + TensorFlow)');
         printLine('           CRASH SAVERS (IoT + Holographic Projection)');

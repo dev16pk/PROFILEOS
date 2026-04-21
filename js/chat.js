@@ -12,13 +12,13 @@ const Chat = (() => {
     role: 'Senior Developer & Solutions Architect at Deloitte',
     experience: '5.8 years at Deloitte (joined Sept 2020)',
     promotions: 'Promoted twice: Analyst (Sept 2020) → Consultant/Developer (2022) → Senior Consultant/Senior Developer & Solutions Architect (2025)',
-    education: 'BTech in Computer Science (Specialization: Cognitive Computing) from IIIT Delhi, and is pursuing an MSc in Applications of Mathematics from Chennai Mathematical Institute (CMI)',
+    education: 'BTech in Computer Science (Specialization: Cognitive Computing) and is pursuing an MSc in Applications of Mathematics',
     location: 'India',
     company: 'Deloitte',
     phone: '+(91) 7014405433',
     email: 'dev16pk@gmail.com',
 
-    bio: `Devyani P. Kumar is a 26-year-old Senior Developer & Solutions Architect at Deloitte with 5.8 years of experience. She holds a BTech in Computer Science (Specialization: Cognitive Computing) from IIIT Delhi and is currently pursuing an MSc in Applications of Mathematics from Chennai Mathematical Institute (CMI), with research in Rubik's Cube Optimization using Evolutionary Algorithms. She specializes in SAP CPQ solutions, GenAI/LLM architectures, and fullstack development. She is one of the architects on the SAP CX Campaign-to-Cash (C2C) initiative, building agents and skills with SAP Core AI and SAP Joule. She co-founded AR Pipeline — a centralized AR asset pipeline and marketplace for battle arenas, robot wars, and hardware blueprint generation. She has been promoted twice — Analyst (2020) → Consultant (2022) → Senior Consultant (2025). She has delivered 16+ projects across enterprise SAP, GenAI, social impact, and college research, and is recognized as a SAP Solutions SME, AI Architect, and Solutions Architect.`,
+    bio: `Devyani P. Kumar is a 26-year-old Senior Developer & Solutions Architect at Deloitte with 5.8 years of experience. She holds a BTech in Computer Science (Specialization: Cognitive Computing) and is currently pursuing an MSc in Applications of Mathematics, with research in Rubik's Cube Optimization using Evolutionary Algorithms. She specializes in SAP CPQ solutions, GenAI/LLM architectures, and fullstack development. She is one of the architects on the SAP CX Campaign-to-Cash (C2C) initiative, building agents and skills with SAP Core AI and SAP Joule. She co-founded AR Pipeline — a centralized AR asset pipeline and marketplace for battle arenas, robot wars, and hardware blueprint generation. She has been promoted twice — Analyst (2020) → Consultant (2022) → Senior Consultant (2025). She has delivered 16+ projects across enterprise SAP, GenAI, social impact, and college research, and is recognized as a SAP Solutions SME, AI Architect, and Solutions Architect.`,
 
     skills_summary: `Core stats: SAP Solutions (95%), GenAI & LLMs (90%), Backend Systems (88%), Game & Creative (86%), Cloud & DevOps (85%), Frontend & UI (82%).\n\nSkill tree branches:\n• SAP & Enterprise — CPQ (5/5), CPI/S4 HANA (4/5), BTP/Commerce (4/5), AI Core (4/5), SAP Joule (4/5), Salesforce (3/5)\n• AI & GenAI — LangChain/LangGraph (5/5), RAG/Bedrock (5/5), LLMs (4/5), Agentic AI/MCP (4/5), NLP/Voice (3/5), TensorFlow/Keras (3/5), Model Finetuning (4/5)\n• DSA & ML — DSA (4/5), Dynamic Programming (4/5), Genetic Algorithms (4/5), Knowledge Ontology (4/5), Cognitive Computing (3/5), ML Pipelines (4/5), Evolutionary Algorithms (3/5)\n• Fullstack — Python (5/5), IronPython (4/5), Next.js/React/TS (4/5), GraphQL/REST (4/5), FastAPI/.NET (4/5), PostgreSQL/Redis (4/5), TailwindCSS (3/5)\n• Cloud & DevOps — AWS Lambda/S3/EC2 (4/5), Microservices (4/5), Docker (3/5), CI/CD (3/5)\n• Game & Creative — Panda3D/PyOpenGL (5/5), 2D/3D Game Dev (5/5), Game Jams & Bug Bounty (4/5), Game Modding (4/5), AR/VR (4/5), IoT/HW Integration (3/5)`,
 
@@ -40,7 +40,7 @@ const Chat = (() => {
 
     gaming: `Devyani has strong development experience in game development (Game & Creative stat: 86%):\n\nSkill ratings:\n• Panda3D / PyOpenGL — 5/5 (MAX)\n• 2D/3D Game Development — 5/5 (MAX)\n• Game Jams & Bug Bounty Hunting — 4/5\n• Game Modding — 4/5\n• AR/VR Dev — 4/5\n• IoT / HW Integration — 3/5\n\nHighlights: Won game jams, raised COVID housing funds through online gaming, certified by Gaming Monk, and modded high-spec games for low-end systems at OceanOfGames. Built AR/VR apps for AM&C community events. Co-founded AR Pipeline — a centralized AR asset pipeline and marketplace for battle arenas, robot wars, and hardware blueprint generation.`,
 
-    education_detail: `Devyani's education:\n\n🎓 Master of Science — Applications of Mathematics\n   Chennai Mathematical Institute (CMI) — Ongoing (Distance Learning Programme)\n   Research Focus: Rubik's Cube Optimization using Evolutionary Algorithms\n\n🎓 Bachelor of Technology — Computer Science (Specialization: Cognitive Computing)\n   IIIT Delhi (IIITD)\n   Thesis Project: MCOACH (Knowledge Ontology + Keras)\n\nHer college projects demonstrate strong CS fundamentals across knowledge representation, optimization algorithms, and IoT systems.`,
+    education_detail: `Devyani's education:\n\n🎓 Master of Science — Applications of Mathematics\n Ongoing (Distance Learning Programme)\n   Research Focus: Rubik's Cube Optimization using Evolutionary Algorithms\n\n🎓 Bachelor of Technology — Computer Science (Specialization: Cognitive Computing)\n   Thesis Project: MCOACH (Knowledge Ontology + Keras)\n\nHer college projects demonstrate strong CS fundamentals across knowledge representation, optimization algorithms, and IoT systems.`,
 
     aman: `AMAN Security Device (2023–2025) — Creator & Lead Engineer\n\nA crowd-scanning system for concealed weapons with threat-level calculation. Built in response to the 2023 Nuh Haryana attacks. Tested and launched with BSF battalion 98 support, who arranged real-time and fictional threat simulations.\n\nTech: Computer Vision, IoT, Security.\nMilestones: Research & Motivation → Hardware + CV Build → Threat-Level Algorithm → BSF Field Testing.`,
 
@@ -71,7 +71,7 @@ const Chat = (() => {
     { patterns: [/\bage\b|how old|born|birthday/i],
       reply: () => `Devyani is ${KB.age} years old (Level 26 in profileOS terms).` },
 
-    { patterns: [/educat|degree|btech|b\.?tech|qualification|studied|cognitive|msc|m\.?sc|master|CMI|chennai mathematical|IIIT|iiitd|universit|college/i],
+    { patterns: [/educat|degree|btech|b\.?tech|qualification|studied|cognitive|msc|m\.?sc|master|universit|college/i],
       reply: () => KB.education_detail },
 
     { patterns: [/company|deloitte|where.*(work|employ)/i],
@@ -248,9 +248,6 @@ const Chat = (() => {
     'btech': KB.education_detail,
     'cognitive': KB.education_detail,
     'msc': KB.education_detail,
-    'cmi': KB.education_detail,
-    'iiitd': KB.education_detail,
-    'iiit': KB.education_detail,
     'mathematics': KB.education_detail,
     'masters': KB.education_detail,
     'experience': `${KB.experience}. ${KB.promotions}.`,
